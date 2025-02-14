@@ -1,0 +1,68 @@
+---
+const nav = [
+  {
+    href: '/',
+    label: 'Home'
+  },
+  {
+    href: '/service/',
+    label: 'Service'
+  },
+  {
+    href: '/about/',
+    label: 'About'
+  },
+  {
+    href: '/works/',
+    label: 'Works'
+  },
+  {
+    href: '/blog/',
+    label: 'Blog'
+  },
+]
+---
+
+<header id="header" class="l-header js-header">
+  <div class="l-header__inner">
+    <!-- ロゴ -->
+    <div class="l-header__logo">
+      <a href="/">
+        <span class="l-header__logo-main">
+          <img class="l-header__logo-img" src="/assets/img/common/logo.svg" alt="BASE10" width="213" height="36">
+        </span>
+      </a>
+    </div>
+    <!-- ヘッダーナビ -->
+    <div class="l-header__container">
+      <nav class="p-header-nav">
+        <ul class="p-header-nav__list">
+          {nav.map((nav_item) =>
+            <li class="p-header-nav__item"><a href={nav_item.href} class="p-header-nav__link">{nav_item.label}</a></li>
+          )}
+        </ul>
+
+      </nav>
+    </div>
+    <!-- ハンバーガーメニュー -->
+    <button class="c-hamburger-btn js-header-btn" aria-label="メニューボタン" aria-expanded="false">
+      <span class="c-hamburger-btn__inner">
+        <span class="c-hamburger-btn__line"></span>
+        <span class="c-hamburger-btn__line"></span>
+        <span class="c-hamburger-btn__line"></span>
+      </span>
+    </button>
+  </div>
+
+  <!-- ハンバーガーメニュー内ナビ -->
+  <nav class="p-sub-nav" aria-hidden="true">
+    <div class="l-inner p-sub-nav__inner">
+      <ul class="p-sub-nav__list">
+        {nav.map((nav_item) =>
+          <li class="p-sub-nav__item"><a href={nav_item.href} class="p-sub-nav__link">{nav_item.label}</a></li>
+        )}
+      </ul>
+
+    </div>
+  </nav>
+</header>
