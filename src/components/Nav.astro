@@ -29,7 +29,7 @@ const nav = [
     <div class="l-header__logo">
       <a href="/">
         <span class="l-header__logo-main">
-          <img class="l-header__logo-img" src="/assets/img/common/logo.svg" alt="BASE10" width="213" height="36">
+          <img class="l-header__logo-img" src="" alt="BASE10" width="213" height="36">
         </span>
       </a>
     </div>
@@ -41,8 +41,10 @@ const nav = [
             <li class="p-header-nav__item"><a href={nav_item.href} class="p-header-nav__link">{nav_item.label}</a></li>
           )}
         </ul>
-
       </nav>
+      <div class="l-header__btn-wrap">
+        <a href="" class="l-header__btn">Contact</a>
+      </div>
     </div>
     <!-- ハンバーガーメニュー -->
     <button class="c-hamburger-btn js-header-btn" aria-label="メニューボタン" aria-expanded="false">
@@ -62,6 +64,9 @@ const nav = [
           <li class="p-sub-nav__item"><a href={nav_item.href} class="p-sub-nav__link">{nav_item.label}</a></li>
         )}
       </ul>
+      <div class="p-sub-nav__btn-wrap">
+        <a href="" class="p-sub-nav__btn">Contact</a>
+      </div>
 
     </div>
   </nav>

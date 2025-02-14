@@ -6,10 +6,10 @@ $hover-opacity: 0.7;
 $color-black01: #222;
 $color-black02: #333;
 
-$main-color: #4DC1A0;
-$second-color: #38BADC;
+$main-color: #AF9272;
+$second-color: #A89073;
 
-$main-bg: #EDF3F8;
+$main-bg: #F6F4ED;
 
 $accent-color: #92846F;
 
@@ -30,6 +30,7 @@ $bold: 700;
 $black: 900;
 
 body {
+  background-color: $main-bg;
   font-family: $base-font-family;
   font-weight: $regular;
   color: $color-black01;
