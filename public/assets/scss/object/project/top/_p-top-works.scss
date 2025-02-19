@@ -21,6 +21,44 @@
     border-radius: 0 200px 0 0;
     background-color: #E8E3D3;
     z-index: -1;
+    @include mq(xl) {
+      width: calc(100% - 40px);
+    }
+  }
+
+  &__head {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    .c-primary-title {
+      text-align: left;
+    }
+
+    & + * {
+      margin-top: 50px;
+    }
+  }
+
+  &__link {
+    position: relative;
+    margin-top: 0;
+    border-bottom: 1px solid $main-color;
+    margin-right:32px;
+    &::after {
+      content: '';
+      display: inline-block;
+      position: absolute;
+      right: -33px;
+      top: 50%;
+      transform: translateY(-50%);      
+      width: 23px;
+      aspect-ratio: 48/31;
+      background: url(../img/icon/icon_arrow-right.svg) no-repeat center / contain;
+      @include mq(md) {
+        
+      }
+    }
   }
 
   &__slider {

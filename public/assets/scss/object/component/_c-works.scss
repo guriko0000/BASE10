@@ -1,0 +1,21 @@
+@use "../../global/index" as *;
+
+/* -------------------------------------
+        c-works
+-----------------------------------------*/
+.c-works {
+  &__body {
+    margin-top: 15px;
+  }
+
+  &__tag-wrap {
+    display: flex;
+    gap: 7px;
+  }
+
+  &__name {
+    color: #666;
+    font-size: 1.4rem;
+    margin-top: 10px;
+  }
+}

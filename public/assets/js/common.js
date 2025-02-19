@@ -1,3 +1,5 @@
+
+
 // ハンバーガーメニュー
 // ________________________________________________________
 const header = document.querySelector('.js-header');
@@ -135,11 +137,6 @@ $(window).scroll(function (){
 });
 
 
-
-// コピーライト年号
-// ________________________________________________________
-document.getElementById("current-year").innerText = new Date().getFullYear();
-
 // 350px以下スケーリング
 // ________________________________________________________
 !(function () {
@@ -166,7 +163,7 @@ document.addEventListener("DOMContentLoaded", function () {
       perPage: 2.8,
       perMove: 1,
       gap: 50,
-      clones: 2,
+      clones: 10,
     });
     splide1.mount();
   }

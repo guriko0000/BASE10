@@ -6,26 +6,25 @@
 .c-btn {
   display: inline-block;
   position: relative;
-  max-width: 293px;
+  max-width: 280px;
   width: 100%; 
   border: 1px solid $main-color;
-  border-radius: 48px;
-  background-color: $main-color;
-  color: #fff;  
+  border-radius: 100px;
+  background-color: #fff;
   font-weight: $medium;
   text-align: center;
   transition: 0.25s;
   z-index: 10;
-  padding: 14px 10px;
+  padding: 24px 10px;
   @include mq(md) {
     font-size: 1.4rem;
     max-width: 250px;
-    padding: 13px 8px;
+    padding: 10px 8px;
   }
 
   &:hover, &:focus-visible {
-    background-color: #fff;
-    color: $main-color;
+    background-color: $main-color;
+    color: #fff;
   }
 }
 
