@@ -3,8 +3,7 @@ $opacity: 0.6;
 $hover-opacity: 0.7;
 
 //汎用色
-$color-black01: #222;
-$color-black02: #333;
+$color-black01: #333;
 
 $main-color: #AF9272;
 $second-color: #A89073;
@@ -17,8 +16,8 @@ $accent-color: #92846F;
 
 /* FontFamily */
 $base-font-family: 'Notosans_subset', sans-serif;
-$second-font-family: 'Roboto Condensed', sans-serif;
-$third-font-family: 'Roboto', sans-serif;
+$second-font-family: "Saira", serif;
+$third-font-family: 'Roboto Condensed', sans-serif;
 
 
 /* font-weight */
@@ -26,6 +25,7 @@ $thin: 200;
 $light: 300;
 $regular: 400;
 $medium: 500;
+$semibold: 600;
 $bold: 700;
 $black: 900;
 

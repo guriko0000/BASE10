@@ -43,12 +43,15 @@
 @use "./object/component/c-icon-btn";
 @use "./object/component/c-gallery";
 @use "./object/component/c-service";
+@use "./object/component/c-media";
 
 
 // Project
 @use "./object/project/top/p-mv";
 @use "./object/project/top/p-top-service";
 @use "./object/project/top/p-top-works";
+@use "./object/project/top/p-top-blog";
+@use "./object/project/top/p-info";
 
 
 
