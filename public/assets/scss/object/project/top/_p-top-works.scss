@@ -1,0 +1,30 @@
+@use "../../../global/index" as *;
+
+/* -------------------------------------
+        p-top-works
+-----------------------------------------*/
+.p-top-works {
+  position: relative;
+  padding: 120px 0 130px;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    width: calc(100% - 100px);
+    height: 100%;
+    border-radius: 0 200px 0 0;
+    background-color: #E8E3D3;
+    z-index: -1;
+  }
+
+  &__slider {
+    margin-left: auto;
+    margin-right: calc(-50vw - -50%);
+  }
+}

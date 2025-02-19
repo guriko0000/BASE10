@@ -3,6 +3,83 @@
 /* -------------------------------------
         p-mv
 -----------------------------------------*/
-.p-mv{
+.p-mv {
+  padding: 44px;
 
+  &__content {
+    display: flex;
+    gap: 90px;
+  }
+
+  &__main {
+    width: 40.67%;
+    max-width: 488px;
+  }
+
+  &__title-sub {
+    color: $main-color;
+    font-size: 2.2rem;
+    font-weight: $bold;
+
+    .tag {
+      display: inline-block;
+      background-color: #fff;
+      border-radius: 4px;
+      border: 1px solid $main-color;
+      line-height: 1;
+      font-size: 1.7rem;
+      padding: 5px 6px;
+      margin-left: 6px;
+      .small {
+        font-size: 1.6rem;
+      }
+    }
+  }
+
+  &__title-main {
+    font-size: 3.8rem;
+    font-weight: $bold;
+    line-height: 1.5;
+  }
+
+  &__main-img {
+    margin-top: 40px;
+  }
+
+  &__approach {
+    width: 51.84%;
+    max-width: 622px;
+  }
+
+  &__btn {
+    display: block;
+    position: relative;
+    max-width: 293px;
+    width: 100%; 
+    border: 1px solid $main-color;
+    border-radius: 48px;
+    background-color: $main-color;
+    color: #fff;  
+    font-weight: $medium;
+    text-align: center;
+    transition: 0.25s;
+    z-index: 10;
+    padding: 14px 10px;
+    margin: 0 auto;
+    @include mq(md) {
+      font-size: 1.4rem;
+      max-width: 250px;
+      padding: 13px 8px;
+    }
+  
+    &:hover, &:focus-visible {
+      background-color: #fff;
+      color: $main-color;
+    }
+  }
+
+  &__gallery {
+    margin-top: 90px;
+    overflow: hidden;
+  }
 }

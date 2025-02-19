@@ -1,5 +1,3 @@
-jQuery(function ($) {
-
 // ハンバーガーメニュー
 // ________________________________________________________
 const header = document.querySelector('.js-header');
@@ -24,7 +22,6 @@ $('.js-header-nav a[href]').on('click', function(event) {
 });
 
 
-
 // ナビのカレント表示
 // ________________________________________________________
 $(function () {
@@ -34,7 +31,6 @@ $(function () {
     }
   });
 });
-
 
 
 // page-topスムーススクロール
@@ -140,8 +136,38 @@ $(window).scroll(function (){
 
 
 
-
-  
-});
-
+// コピーライト年号
+// ________________________________________________________
 document.getElementById("current-year").innerText = new Date().getFullYear();
+
+// 350px以下スケーリング
+// ________________________________________________________
+!(function () {
+  const viewport = document.querySelector('meta[name="viewport"]');
+  function switchViewport() {
+    const value = window.outerWidth > 350 ? 'width=device-width,initial-scale=1' : 'width=390';
+    if (viewport && viewport.getAttribute('content') !== value) {
+      viewport.setAttribute('content', value);
+    }
+  }
+  window.addEventListener('resize', switchViewport);
+  switchViewport();
+})();
+
+
+// スライダー
+// ________________________________________________________
+document.addEventListener("DOMContentLoaded", function () {
+  // splide1
+  const splideElement1 = document.querySelector(".splide");
+  if (splideElement1) {
+    const splide1 = new Splide(splideElement1, {
+      type: "loop",
+      perPage: 2.8,
+      perMove: 1,
+      gap: 50,
+      clones: 2,
+    });
+    splide1.mount();
+  }
+});

@@ -38,9 +38,17 @@
 }
 
 .u-text-accent-color {
-  color: $accent-color;
+  color: $accent-color!important;
 }
 
 .u-border-bottom-none {
-  border-bottom-width: 0;
+  border-bottom-width: 0!important;
+}
+
+.u-btn-wrap {
+  text-align: center;
+  margin-top: 60px!important;
+  @include mq(md) {
+    margin-top: 40px!important;
+  }
 }

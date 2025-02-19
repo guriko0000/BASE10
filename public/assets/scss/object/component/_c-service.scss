@@ -1,0 +1,48 @@
+@use "../../global/index" as *;
+
+/* -------------------------------------
+        c-service
+-----------------------------------------*/
+.c-service {
+  display: flex;
+  gap: 77px;
+
+  &__img {
+    width: 45.5%;
+    max-width: 546px;
+  }
+
+  &__text-area {
+    flex: 1;
+  }
+
+  &__sub-title {
+    display: inline-block;
+    color: $main-color;
+    font-size: 2rem;
+    font-weight: $bold;
+    line-height: 1.5;
+    border-bottom: 2px solid $main-color;
+    padding-bottom: 8px;
+
+    & + * {
+      margin-top: 30px;
+    }
+  }
+
+  &__title {
+    font-size: 2.4rem;
+    font-weight: $medium;
+    line-height: 1.6;
+  }
+
+  &__text-wrap {
+    margin-top: 30px;
+  }
+
+  &__text {
+    & + & {
+      margin-top: 20px;
+    }
+  }
+}

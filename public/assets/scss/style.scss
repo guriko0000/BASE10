@@ -41,10 +41,14 @@
 @use "./object/component/c-card";
 @use "./object/component/c-btn";
 @use "./object/component/c-icon-btn";
+@use "./object/component/c-gallery";
+@use "./object/component/c-service";
 
 
 // Project
 @use "./object/project/top/p-mv";
+@use "./object/project/top/p-top-service";
+@use "./object/project/top/p-top-works";
 
 
 

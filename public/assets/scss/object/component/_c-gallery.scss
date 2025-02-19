@@ -1,0 +1,38 @@
+@use "../../global/index" as *;
+
+/* -------------------------------------
+        c-gallery
+-----------------------------------------*/
+.c-gallery {
+  display: flex;
+  margin-inline: calc(50% - 50vw);
+  column-gap: 30px;
+  overflow: hidden;
+
+  &__list {
+    display: flex;
+    column-gap: 30px;
+    animation: gallery-loop 80s infinite linear 0.5s both;
+  }
+  
+  &__item {
+    width: 274px;
+    height: auto;
+  }
+  
+  &__image {
+    object-fit: cover;
+    width: 100%;
+    height: auto;
+  }
+}
+
+
+@keyframes gallery-loop {
+  0% {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
