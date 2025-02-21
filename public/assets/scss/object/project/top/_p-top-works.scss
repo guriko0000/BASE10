@@ -64,5 +64,52 @@
   &__slider {
     margin-left: auto;
     margin-right: calc(-50vw - -50%);
+
+    .splide__arrow {
+      width: 62px;
+      height: 62px;
+      background-color: #fff;
+      border: 1px solid $main-color;
+      opacity: 1;
+      transition: opacity 0.25s;
+      @include mq(xl) {
+        width: 40px;
+        height: 40px;
+      }
+    }
+
+    .splide__arrow svg {
+      fill: $main-color;
+      width: 40px;
+      height: 40px;
+      @include mq(xl) {
+        width: 30px;
+        height: 30px;
+      }
+    }
+
+    .splide__arrow {
+      top: 40%;
+      @include mq(xl) {
+        top: 35%;
+      }
+    }
+
+    .splide__arrow--next {
+      right: 200px;
+      @media screen and (max-width: 1600px){
+        right: 100px;
+      }
+      @include mq(xxl) {
+        right: 60px;
+      }      
+    }
+
+    .splide__arrow--prev {
+      left: -30px;
+      @include mq(xl) {
+        left: -20px;
+      }
+    }
   }
 }

@@ -10,7 +10,28 @@
 
   &__tag-wrap {
     display: flex;
+    flex-wrap: wrap;
     gap: 7px;
+
+  }
+
+  &__tag {
+    display: inline-block;
+    background-color: $main-color;
+    border-radius: 20px;
+    color: #fff;
+    font-family: $third-font-family;
+    font-size: 1.4rem;
+    line-height: 1.4;
+    letter-spacing: 0;
+    font-weight: $medium;
+    padding: 4px 15px;
+    @include mq(xl) {
+      font-size: 1.2rem;
+    }
+    @include mq(md) {
+      font-size: 1rem;
+    }
   }
 
   &__name {
