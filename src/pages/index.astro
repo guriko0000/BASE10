@@ -20,7 +20,11 @@ import Layout from '../layouts/Layout.astro';
         </div>
         <div class="p-mv__approach">
           <figure class="p-mv__approach-img">
-            <img src="/assets/img/top/mv_img02.png" alt="こんなお悩みありませんか？「そもそもどうやって発注したらいいのか..」「デジタルに弱いので何から相談していいかわからない」「とりあえず一度話を聞いてほしい」「Webサイトが必要か分からない」「デザインを何とかしなきゃと思いつつ数年経ってしまった」「オンライン中心のコミュニケーションに不安がある。」" width="622" height="392" loading="lazy">
+            <picture>
+              <source media="(min-width: 768px)" srcset="/assets/img/top/mv_img02.png" width="622" height="392">
+              <source media="(max-width: 767px)" srcset="/assets/img/top/mv_img02-sp.png" width="397" height="251">
+              <img src="/assets/img/top/mv_img02.png" alt="こんなお悩みありませんか？「そもそもどうやって発注したらいいのか..」「デジタルに弱いので何から相談していいかわからない」「とりあえず一度話を聞いてほしい」「Webサイトが必要か分からない」「デザインを何とかしなきゃと思いつつ数年経ってしまった」「オンライン中心のコミュニケーションに不安がある。」" width="622" height="392">
+            </picture>
           </figure>
           <a href="" class="p-mv__btn">無料相談してみる</a>
         </div>
@@ -144,7 +148,7 @@ import Layout from '../layouts/Layout.astro';
             <img src="/assets/img/top/service_icon02.png" alt="" width="263" height="178" loading="lazy">
           </div>
           <div class="c-card__body">
-            <h3 class="c-card__title">グラフィックデザイン</h3>
+            <h3 class="c-card__title">グラフィック<br class="u-onliy-sp">デザイン</h3>
             <p class="c-card__text">ブランドや商品を魅力的に伝えるデザインを作成します。</p>
           </div>
         </li>
@@ -162,7 +166,7 @@ import Layout from '../layouts/Layout.astro';
             <img src="/assets/img/top/service_icon04.png" alt="" width="263" height="178" loading="lazy">
           </div>
           <div class="c-card__body">
-            <h3 class="c-card__title">Webサイト保守・運用</h3>
+            <h3 class="c-card__title">Webサイト<br class="u-onliy-sp">保守・運用</h3>
             <p class="c-card__text">Webサイトを常に安全かつ最適な状態で維持します。
 
             </p>
@@ -290,7 +294,7 @@ import Layout from '../layouts/Layout.astro';
       <li>
         <a href="" class="c-media">
           <div class="c-media__body">
-            <span class="c-media__time"><time datetime="2024-03-11">2024.03.11</time></span>
+            <span class="c-media__date"><time datetime="2024-03-11">2024.03.11</time></span>
             <h3 class="c-media__title">麻布十番のSEOを狙えるような記事のタイトルが入ります。</h3>
             <div class="c-media__tag-wrap">
               <span class="c-media__tag">カテゴリ</span>
@@ -303,12 +307,16 @@ import Layout from '../layouts/Layout.astro';
           </div>
         </a>
       </li>
-      <li class="c-media">
+      <li>
         <a href="" class="c-media">
           <div class="c-media__body">
-            <span class="c-media__time"><time datetime="2024-03-11">2024.03.11</time></span>
+            <span class="c-media__date"><time datetime="2024-03-11">2024.03.11</time></span>
             <h3 class="c-media__title">麻布十番のSEOを狙えるような記事のタイトルが入ります。</h3>
             <div class="c-media__tag-wrap">
+              <span class="c-media__tag">カテゴリ</span>
+              <span class="c-media__tag">カテゴリ</span>
+              <span class="c-media__tag">カテゴリ</span>
+              <span class="c-media__tag">カテゴリ</span>
               <span class="c-media__tag">カテゴリ</span>
             </div>
           </div>
@@ -319,10 +327,10 @@ import Layout from '../layouts/Layout.astro';
           </div>
         </a>
       </li>
-      <li class="c-media">
+      <li>
         <a href="" class="c-media">
           <div class="c-media__body">
-            <span class="c-media__time"><time datetime="2024-03-11">2024.03.11</time></span>
+            <span class="c-media__date"><time datetime="2024-03-11">2024.03.11</time></span>
             <h3 class="c-media__title">麻布十番のSEOを狙えるような記事のタイトルが入ります。</h3>
             <div class="c-media__tag-wrap">
               <span class="c-media__tag">カテゴリ</span>
@@ -335,10 +343,10 @@ import Layout from '../layouts/Layout.astro';
           </div>
         </a>
       </li>
-      <li class="c-media">
+      <li>
         <a href="" class="c-media">
           <div class="c-media__body">
-            <span class="c-media__time"><time datetime="2024-03-11">2024.03.11</time></span>
+            <span class="c-media__date"><time datetime="2024-03-11">2024.03.11</time></span>
             <h3 class="c-media__title">麻布十番のSEOを狙えるような記事のタイトルが入ります。</h3>
             <div class="c-media__tag-wrap">
               <span class="c-media__tag">カテゴリ</span>

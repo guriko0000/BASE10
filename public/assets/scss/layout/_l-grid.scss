@@ -14,15 +14,11 @@
 // col2
 .l-grid--col2 {
   grid-template-columns: repeat(2, 1fr);
-  @include mq(md) {
-    grid-template-columns: repeat(1, 1fr);
-  }
 }
 
 
 
 // col3
-
 .l-grid--col3 {
   grid-template-columns: repeat(3, 1fr);
   @include mq(md) {

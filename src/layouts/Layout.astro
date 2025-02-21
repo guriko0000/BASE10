@@ -2,6 +2,7 @@
 import '../../public/assets/js/splide/splide.min.css';
 import '../../public/assets/css/style.css';
 import Nav from '../components/Nav.astro';
+import FixedCta from '../components/FixedCta.astro';
 const { title } = Astro.props;
 const companyName = "BASE10";
 const pageTitle = title ? `${title} | ${companyName}` : companyName;
@@ -72,6 +73,7 @@ const pageTitle = title ? `${title} | ${companyName}` : companyName;
     </div>
   </div>
   </section>
+  <FixedCta />
   <!-- footer -->
   <footer class="l-footer">
     <div class="l-inner">

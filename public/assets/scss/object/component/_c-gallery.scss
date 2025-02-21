@@ -8,16 +8,25 @@
   margin-inline: calc(50% - 50vw);
   column-gap: 30px;
   overflow: hidden;
+  @include mq(md) {
+    column-gap: 18px;
+  }
 
   &__list {
     display: flex;
     column-gap: 30px;
     animation: gallery-loop 80s infinite linear 0.5s both;
+    @include mq(md) {
+      column-gap: 18px;
+    }
   }
   
   &__item {
     width: 274px;
     height: auto;
+    @include mq(md) {
+      width: 166px;
+    }
   }
   
   &__image {

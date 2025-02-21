@@ -170,6 +170,10 @@ document.addEventListener("DOMContentLoaded", function () {
         1200: {
           gap: 30,
         },
+        767: {
+          perPage: 1.3,
+          gap: 20,
+        },
       },
     });
     splide1.mount();

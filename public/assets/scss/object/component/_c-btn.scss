@@ -17,9 +17,8 @@
   z-index: 10;
   padding: 24px 10px;
   @include mq(md) {
-    font-size: 1.4rem;
-    max-width: 250px;
-    padding: 10px 8px;
+    font-size: 1.6rem;
+    padding: 17px 8px;
   }
 
   &:hover, &:focus-visible {
