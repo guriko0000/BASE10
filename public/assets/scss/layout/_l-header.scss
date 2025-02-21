@@ -14,7 +14,8 @@
   background-color: $main-bg;
   z-index: 20;
   @include mq(md) {
-    height: 60px;
+    height: 70px;
+    padding-bottom: 0;
   }
 
   &__inner {
@@ -29,6 +30,9 @@
     @include mq(header) {
       padding-right: 20px;
       padding-left: 20px;
+    }
+    @include mq(md) {
+      align-items: center;
     }
   }
 

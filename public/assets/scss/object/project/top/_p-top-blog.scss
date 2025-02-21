@@ -5,4 +5,7 @@
 -----------------------------------------*/
 .p-top-blog {
   padding: 160px 0;
+  @include mq(md) {
+    padding: 60px 0 80px;
+  }
 }
