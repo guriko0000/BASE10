@@ -8,4 +8,84 @@
   color: #fff;
   padding: 180px 0 100px;
   margin-top: -78px;
+
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    @include mq(md) {
+      display: block;
+    }
+  }
+
+  &__logo {
+    max-width: 116px;
+    @include mq(md) {
+      margin: 0 auto;
+    }
+  }
+
+  &__nav {
+    @include mq(md) {
+      max-width: 290px;
+      margin: 30px auto 0;
+    }
+  }
+
+  &__nav-list {
+    display: flex;
+    flex-wrap: wrap;
+    @include mq(md) {
+
+    }
+  }
+
+  &__nav-item {
+    @include mq(md) {
+      width: 40%;
+      &:nth-child(3n) {
+        width: 20%;
+      }
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+    a {
+      display: inline-block;
+      font-family: $third-font-family;
+      transition: opacity 0.25s;
+      @include mq(md) {
+        padding: 10px 0;
+      }
+      &:hover, &:focus-visible {
+        opacity: 0.7;
+      }
+    }
+  }
+
+  &__bottom {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid rgba(211, 202, 192, 0.20);
+    font-size: 1.2rem;
+    @include mq(md) {
+      font-size: 1rem;
+    }
+    padding-top: 30px;
+    margin-top: 30px;
+    @include mq(md) {
+      padding-top: 20px;
+    }
+  }
+
+  &__copyright {
+    font-family: $third-font-family;
+  }
+
+  &__bottom-link {
+    transition: opacity 0.25s;
+    &:hover, &:focus-visible {
+      opacity: 0.7;
+    }
+  }
 }

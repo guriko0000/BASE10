@@ -57,6 +57,11 @@
     @include mq(md) {
       margin-right: 20px;
     }
+    &:hover, &:focus-visible {
+      &::after {
+        transform: translate(5px, -50%);
+      }
+    }
     &::after {
       content: '';
       display: inline-block;
@@ -67,6 +72,7 @@
       width: 23px;
       aspect-ratio: 48/31;
       background: url(../img/icon/icon_arrow-right.svg) no-repeat center / contain;
+      transition: transform 0.3s;
       @include mq(md) {
         width: 14px;
         right: -20px;
