@@ -34,7 +34,7 @@
 
   &__img {
     position: relative;
-    padding-top: 65%;
+    padding-top: 69.58%;
     border-radius: 10px;
     overflow: hidden;
     transition: 0.3s;
@@ -63,6 +63,7 @@
     font-family: $second-font-family;
     font-size: 1.2rem;
     letter-spacing: 0.1em;
+    margin-bottom: 10px;
   }
 
   &__title {
@@ -70,7 +71,6 @@
     background: linear-gradient($main-color 0 0) var(--p, 0) 100% /var(--d, 0) 1px no-repeat;
     font-size: 1.8rem;
     line-height: 1.6;
-    margin-top: 10px;
     transition: 0.3s, background-position 0s 0.3s;
     @include mq(md) {
       font-size: 1.4rem;
@@ -97,7 +97,8 @@
     background-color: $main-color;
     color: #fff;
     font-size: 1.2rem;
-    padding: 2px 4px;
+    line-height: 1.6;
+    padding: 2px 8px;
   }
 
 }

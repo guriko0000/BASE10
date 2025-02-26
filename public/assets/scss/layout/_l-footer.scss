@@ -40,8 +40,10 @@
   }
 
   &__nav-item {
+    margin-left: 40px;
     @include mq(md) {
       width: 40%;
+      margin-left: 0;
       &:nth-child(3n) {
         width: 20%;
       }

@@ -35,7 +35,7 @@
     font-weight: $bold;
     line-height: 1.5;
     border-bottom: 2px solid $main-color;
-    padding-bottom: 8px;
+    padding-bottom: 4px;
     @include mq(md) {
       font-size: 1.6rem;
     }
@@ -65,5 +65,36 @@
     & + & {
       margin-top: 20px;
     }
+  }
+
+  &__bottom {
+    margin-top: 60px;
+  }
+
+  &__bottom-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 38px;
+  }
+
+  &__bottom-area {
+    line-height: 2;
+    margin: 20px 40px 0 0;
+  }
+}
+
+
+.c-service--main {
+  gap: 50px;
+
+  .c-service__title {
+    font-size: 2.6rem;
+    @include mq(md) {
+      font-size: 2rem;
+    }
+  }
+
+  .c-service__img {
+    max-width: 574px;
   }
 }

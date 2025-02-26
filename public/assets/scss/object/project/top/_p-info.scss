@@ -71,7 +71,8 @@
 
   &__item-title {
     font-size: 2rem;
-    margin-top: 15px;
+    line-height: 1.6;
+    margin-top: 12px;
   }
 
   &__btn-warp {
@@ -93,7 +94,7 @@
     text-align: center;
     transition: 0.25s;
     z-index: 10;
-    padding: 19px 10px;
+    padding: 18px 10px;
     @include mq(md) {
       font-size: 1.6rem;
       padding: 17px 8px;
@@ -105,6 +106,7 @@
     }
 
     &--line {
+      max-width: 220px;
       border-color: #4CC764;
       background-color: #fff;
       color: $color-black01;

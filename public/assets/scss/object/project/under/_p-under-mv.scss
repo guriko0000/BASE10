@@ -1,0 +1,39 @@
+@use "../../../global/index" as *;
+
+/* -------------------------------------
+        p-under-mv
+-----------------------------------------*/
+.p-under-mv {
+  padding: 70px 0 100px;
+
+  .l-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .en {
+      font-family: $second-font-family;
+      font-size: 6rem;
+      font-weight: $semibold;
+      line-height: 1;
+      text-transform: uppercase;
+      text-align: center;
+      &::first-letter {
+        color: $main-color;
+      }
+    }
+
+    .ja {
+      color: $main-color;
+      font-size: 2rem;
+      font-weight: $bold;
+    }
+  }
+}

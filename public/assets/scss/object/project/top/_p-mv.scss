@@ -22,10 +22,12 @@
   &__main {
     width: 40.67%;
     max-width: 488px;
+    margin-top: 5px;
     @include mq(lg) {
       width: 100%;
       max-width: none;
       text-align: center;
+      margin-top: 0;
     }
   }
 
@@ -62,6 +64,7 @@
     font-size: 3.8rem;
     font-weight: $bold;
     line-height: 1.5;
+    margin-top: 10px;
     @include mq(xl) {
       font-size: 3.4rem;
     }
@@ -78,6 +81,8 @@
   }
 
   &__approach {
+    display: flex;
+    flex-direction: column;
     width: 51.84%;
     max-width: 622px;
     @include mq(lg) {
@@ -103,7 +108,7 @@
   &__btn {
     display: block;
     position: relative;
-    max-width: 293px;
+    max-width: 260px;
     width: 100%; 
     border: 1px solid $main-color;
     border-radius: 48px;
@@ -113,8 +118,8 @@
     text-align: center;
     transition: 0.25s;
     z-index: 10;
-    padding: 14px 10px;
-    margin: 0 auto;
+    padding: 18px 10px;
+    margin: auto auto 0;
     @include mq(md) {
       font-size: 1.4rem;
       max-width: 250px;
