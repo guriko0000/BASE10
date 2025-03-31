@@ -1,0 +1,75 @@
+@use "../../../global/index" as *;
+
+/* -------------------------------------
+        p-service
+-----------------------------------------*/
+
+.p-service {
+  overflow: hidden;
+  &__content {
+    display: flex;
+    flex-direction: row-reverse;
+    column-gap: 150px;
+    @include mq(xl) {
+      column-gap: 80px;
+    }
+  }
+
+  &__text-area {
+    flex-shrink: 0;
+    width: 39.2%;
+    max-width: 470px;
+  }
+
+  &__sec {
+    & + & {
+      margin-top: 80px;
+    }
+
+    .c-secondary-title {
+      & + * {
+        margin-top: 20px;
+      }
+    }
+  }
+
+  &__sec-text {
+    letter-spacing: 0.04em;
+    line-height: 2;
+  }
+
+  &__img-area {
+    margin-left: auto;
+    margin-right: calc(-55vw - -50%);
+  }
+
+  &__list {
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    @include mq(lg) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  &__item {
+    overflow: hidden;
+    border-radius: 20px;
+
+    a {
+      transition: 0.25s;
+      &:hover, &:focus-visible {
+        .p-service__item-img img{
+          transform: scale(1.1);
+        }
+      }
+    }
+  }
+
+  &__item-img {
+    img {
+      transition: 0.25s;
+    }
+  }
+
+}

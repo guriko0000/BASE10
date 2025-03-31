@@ -1,0 +1,76 @@
+@use "../../global/index" as *;
+
+/* -------------------------------------
+        c-flow
+-----------------------------------------*/
+.c-flow {
+  position: relative;
+  &::before {
+    content: '';
+    display: inline-block;
+    position: absolute;
+    top: 14px;
+    left: 5px;
+    width: 1px;
+    height: 100%;
+    background-color: #BAAEA0;
+  }
+
+  &__item {
+    position: relative;
+    padding-top: 34px;
+    padding-left: 40px;
+    & + * {
+      margin-top: 60px;
+    }
+  }
+
+  &__head {
+    & + * {
+      margin-top: 15px;
+    }
+  }
+
+  &__num {
+    display: inline-block;
+    position: absolute;
+    top: 4px;
+    left: 0;
+    color: $main-color;
+    font-family: $third-font-family;
+    font-size: 1.4rem;
+    font-weight: $bold;
+    line-height: 1;
+    text-transform: uppercase;
+
+    &::before {
+      content: '';
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      border-radius: 50px;
+      background-color: #fff;
+      margin-right: 10px;
+    }
+    &::after {
+      content: '';
+      display: inline-block;
+      position: absolute;
+      top:2px;
+      left: 2px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50px;
+      background-color: $main-color;
+    }
+  }
+
+  &__title {
+    font-size: 1.8rem;
+    font-weight: $medium;
+  }
+
+  &__text {
+    line-height: 2;
+  }
+}

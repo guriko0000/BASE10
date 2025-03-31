@@ -1,0 +1,14 @@
+@use "../../global/index" as *;
+
+/* -------------------------------------
+        c-color-title
+-----------------------------------------*/
+.c-color-title {
+  color: $main-color;
+  font-size: 3.2rem;
+  font-weight: $medium;
+  line-height: 1.2;
+  & + * {
+    margin-top: 80px;
+  }
+}
