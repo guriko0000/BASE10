@@ -2018,6 +2018,59 @@ body {
 }
 
 /* -------------------------------------
+        c-table
+-----------------------------------------*/
+.c-table__row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-top: 1px solid #ccc;
+  padding: 30px 0;
+}
+.c-table__row:last-child {
+  border-bottom: 1px solid #ccc;
+}
+.c-table__head {
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  width: 160px;
+  padding-left: 10px;
+}
+.c-table__data {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  line-height: 1.5;
+}
+.c-table__list {
+  display: grid;
+  row-gap: 10px;
+  padding-left: 1.2em;
+}
+.c-table__list li {
+  text-indent: -0.6em;
+}
+.c-table__list li::before {
+  content: "";
+  width: 4px;
+  height: 4px;
+  display: inline-block;
+  background-color: #333;
+  border-radius: 50%;
+  margin-right: 8px;
+  margin-bottom: 3px;
+}
+.c-table__list--col02 {
+  grid-template-columns: repeat(2, 1fr);
+  -webkit-column-gap: 100px;
+     -moz-column-gap: 100px;
+          column-gap: 100px;
+}
+
+/* -------------------------------------
         p-mv
 -----------------------------------------*/
 .p-mv {

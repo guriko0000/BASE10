@@ -1,0 +1,57 @@
+@use "../../global/index" as *;
+
+/* -------------------------------------
+        c-table
+-----------------------------------------*/
+.c-table {
+  
+  &__row {
+    display: flex;
+    align-items: center;
+    border-top: 1px solid #ccc;
+    padding: 30px 0;
+
+    &:last-child {
+      border-bottom: 1px solid#ccc;
+    }
+  }
+
+  &__head {
+    flex-shrink: 0;
+    width: 160px;
+    padding-left: 10px;
+  }
+
+  &__data {
+    flex: 1;
+    line-height: 1.5;
+  }
+
+  &__list {
+    display: grid;
+    row-gap: 10px;
+    padding-left: 1.2em;
+    
+    li {
+      text-indent: -0.6em;
+      &::before {
+        content:  "";
+        width: 4px;
+        height: 4px;
+        display: inline-block;
+        background-color: $color-black01;
+        border-radius: 50%;  
+        margin-right: 8px;
+        margin-bottom: 3px;
+      }
+      // & + * {
+      //   margin-top: 10px;
+      // }
+    }
+
+    &--col02 {
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: 100px;
+    }
+  }
+}
