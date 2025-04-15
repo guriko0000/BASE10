@@ -5,6 +5,9 @@
 -----------------------------------------*/
 .p-under-mv {
   padding: 70px 0 100px;
+  @include mq(md) {
+    padding: 35px 0 50px;
+  }
 
   .l-inner {
     display: flex;
@@ -25,6 +28,9 @@
       line-height: 1;
       text-transform: uppercase;
       text-align: center;
+      @include mq(md) {
+        font-size: 4.2rem;
+      }
       &::first-letter {
         color: $main-color;
       }
@@ -34,6 +40,11 @@
       color: $main-color;
       font-size: 2rem;
       font-weight: $bold;
+      margin-top: 5px;
+      @include mq(md) {
+        font-size: 1.4rem;
+        margin-top: 3px;
+      }
     }
   }
 }

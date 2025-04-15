@@ -5,11 +5,17 @@
 -----------------------------------------*/
 .l-section {
   padding: 80px 0;
+  @include mq(md) {
+    padding: 30px 0;
+  }
 
   &--first {
     padding-top: 0;
   }
   &--last {
     padding-bottom: 160px;
+    @include mq(md) {
+      padding-bottom: 80px;
+    }
   }
 }
