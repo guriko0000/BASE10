@@ -1,0 +1,49 @@
+@use "../../global/index" as *;
+
+/* -------------------------------------
+        c-staff
+-----------------------------------------*/
+.c-staff {
+  
+  &__img {
+    width: 163px;
+    height: 163px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto;
+    @include mq(md) {
+      width: 140px;
+      height: 140px;
+    }
+
+    img{
+      width: 100%;
+    }
+  }
+
+  &__namebox {
+    font-family: $third-font-family;
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  &__name {
+    font-size: 1.2rem;
+  }
+
+  &__position {
+    font-size: 1.4rem;
+    margin-top: 5px;
+  }
+
+  &__body {
+    margin-top: 25px;
+    @include mq(md) {
+      margin-top: 20px;
+    }
+  }
+
+  &__text {
+    letter-spacing: 0;
+  }
+}

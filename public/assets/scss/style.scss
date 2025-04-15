@@ -48,6 +48,7 @@
 @use "./object/component/c-works";
 @use "./object/component/c-flow";
 @use "./object/component/c-table";
+@use "./object/component/c-staff";
 
 
 // Project
@@ -60,6 +61,7 @@
 
 @use "./object/project/under/p-under-mv";
 @use "./object/project/under/p-service";
+@use "./object/project/under/p-company";
 
 
 
