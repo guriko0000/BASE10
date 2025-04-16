@@ -1,0 +1,92 @@
+@use "../../../global/index" as *;
+
+/* -------------------------------------
+        p-contact
+-----------------------------------------*/
+
+.p-contact {
+  .l-inner {
+    max-width: 1070px;
+    margin: 0 auto;
+  }
+
+  &__info {
+    display: grid;
+    gap: 50px;
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: 100px;
+    @include mq(md) {
+      gap: 20px;
+      grid-template-columns: repeat(1, 1fr);
+      justify-content: center;
+    }
+  }
+
+  &__info-item {
+    background-color: #fff;
+    border-radius: 10px;
+    font-size: 1.6rem;
+    text-align: center;
+    padding: 40px 20px;
+    @include mq(md) {
+      max-width: 400px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 30px 20px;
+    }
+  }
+
+  &__info-line {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 220px;
+    width: 100%;
+    background-color: #4CC764;
+    border-radius: 100px;
+    color: #fff;
+    letter-spacing: 0.04em;
+    text-align: center;
+    padding: 10px;
+    margin-top: 20px;
+    transition: opacity 0.3s;
+    @include mq(md) {
+      margin-top: 15px;
+    }
+
+    .line-icon {
+      display: inline-block;
+      max-width: 36px;
+      margin-right: 10px;
+    }
+
+    &:hover, &:focus-visible {
+      opacity: 0.7;
+    }
+  }
+
+  &__info-tel {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: $third-font-family;
+    font-size: 3.2rem;
+    line-height: 1;
+    padding: 3px;
+    margin-top: 20px;
+    transition: opacity 0.3s;
+    @include mq(md) {
+      margin-top: 15px;
+    }
+
+    .tel-icon {
+      display: inline-block;
+      max-width: 19px;
+      margin-right: 10px;
+    }
+
+    &:hover, &:focus-visible {
+      opacity: 0.7;
+    }
+  }
+}

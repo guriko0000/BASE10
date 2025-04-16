@@ -1,0 +1,166 @@
+@use "../../global/index" as *;
+
+/* -------------------------------------
+        c-form
+-----------------------------------------*/
+.c-form {
+  &__row {
+    display: flex;
+    border-bottom: 1px solid #bbb;
+    @include mq(md) {
+      border-bottom: none;
+      flex-direction: column;
+    }
+
+    &:first-child {
+      border-top: 1px solid #bbb;
+      @include mq(md) {
+        border-top: none;
+      }
+    }
+
+    &:not(:first-child) {
+      @include mq(md) {
+        margin-top: 40px;
+      }
+    }
+  }
+
+  &__tag {
+    display: inline-block;
+    margin-left: 18px;
+    padding: 5px 12px 6px;
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 400;
+    line-height: 1;
+    background-color: $accent-color;
+    border-radius: 50px;
+    @include mq(lg) {
+      margin-left: 8px;
+    }
+    @include mq(md) {
+      font-size: 1.1rem;
+      padding: 4px 10px 5px;
+      margin-left: 8px;
+    }
+  }
+
+  &__head, &__data {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    @include mq(md) {
+      padding: 0;
+    }
+  }
+
+  &__head {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    width: 160px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-weight: 500;
+    @include mq(md) {
+      width: 100%;
+      padding: 0;
+    }
+    &.align-start {
+      display: flex;
+      align-items: flex-start;
+    }
+  }
+
+  &__data {
+    flex: 1;
+    padding-left: 10px;
+    padding-right: 10px;
+    @include mq(lg) {
+      padding-left: 0;
+    }
+    @include mq(md) {
+      width: 100%;
+      padding: 0;
+      margin-top: 10px;
+    }
+
+    input:focus-visible, textarea:focus-visible {
+      outline: 1px solid $main-color;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      border: 1px solid #BDAA93;
+      border-radius: 2px;
+      background-color: #ffffff;
+      border-radius: 6px;
+      font-family: $base-font-family;
+      font-size: 1.6rem;
+      padding: 10px 20px;
+      @include mq(md) {
+        padding: 10px;
+        border-radius: 2px;
+      }
+    }
+
+    textarea {
+      padding: 14px 20px;
+      @include mq(md) {
+        padding: 10px;
+      }
+    }
+  }
+
+  input[type="radio"] {
+    border: 0;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px; 
+  }
+
+  ::placeholder {
+    color: #999;
+  }
+
+  &__btn-wrap {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+  }
+
+  &__btn {
+    display: block;
+    position: relative;
+    max-width: 320px;
+    width: 100%;
+    border: 1px solid $main-color;
+    border-radius: 48px;
+    background-color: $main-color;
+    color: #fff;
+    font-weight: 500;
+    text-align: center;
+    letter-spacing: 0.04em;
+    padding: 18px 10px;
+    transition: 0.25s;
+    z-index: 10;
+    @include mq(md) {
+      font-size: 1.4rem;
+      max-width: 250px;
+      padding: 13px 8px;
+      margin-top: 20px;
+    }
+  
+    &:hover, &:focus-visible {
+      background-color: #fff;
+      color: $main-color;
+    }
+  }
+}

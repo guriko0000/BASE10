@@ -1,0 +1,87 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
+// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+---
+
+<Layout title="CONTAVT">
+  <section class="p-under-mv">
+    <div class="l-inner">
+      <h1 class="p-under-mv__title">
+        <span class="en">Contact</span>
+        <span class="ja">お問い合わせ</span>
+      </h1>
+    </div>
+  </section>
+  <section class="p-contact l-section l-section--first l-section--last">
+    <div class="l-inner">
+      <h2 class="c-color-title">メールでのお問い合わせ</h2>
+
+      <form>        
+        <dl class="c-form__form">
+          <div class="c-form__row">
+            <dt class="c-form__head">
+              <label for="company">会社名</label>
+            </dt>
+            <dd class="c-form__data">
+                <input size="40" maxlength="400" class="" id="company" aria-required="true" aria-invalid="false" value="" type="text" name="company">
+            </dd>
+          </div>
+          <div class="c-form__row">
+            <dt class="c-form__head">
+              <label for="your-name">お名前
+                <!-- <span class="c-form__tag">必須</span> -->
+              </label>
+            </dt>
+            <dd class="c-form__data">
+                <input size="40" maxlength="400" class="" id="your-name" aria-required="true" aria-invalid="false" value="" type="text" name="your-name">
+            </dd>
+          </div>
+
+          <div class="c-form__row">
+            <dt class="c-form__head">
+              <label for="email">E-mail</label>
+            </dt>
+            <dd class="c-form__data">
+              <input size="40" maxlength="400" class="" id="email" aria-required="true" aria-invalid="false" value="" type="email" name="email">
+            </dd>
+          </div>
+          <div class="c-form__row">
+            <dt class="c-form__head u-align-start">
+              <label for="content">ご相談内容</label>
+            </dt>
+            <dd class="c-form__data">
+              <textarea cols="40" rows="5" maxlength="2000" class="" id="content" aria-required="true" aria-invalid="false" name="content"></textarea>
+            </dd>
+          </div>
+        </dl>
+      
+        <div class="c-form__btn-wrap">
+          <button type="submit" class="c-form__btn">確認画面へ</button>
+        </div>      
+      </form>
+
+      <div class="p-contact__info">
+        <div class="p-contact__info-item">
+          <p class="p-contact__info-title">LINEでご相談</p>
+          <a href="" class="p-contact__info-line"><span class="line-icon"><img src="/assets/img/icon/icon_line2.svg" alt="LINE" width="36" height="35" loading="lazy"></span>お問い合わせ</a>          
+        </div>
+        <div class="p-contact__info-item">
+          <p class="p-contact__info-title">電話でご相談</p>
+          <a href="tel:03-6883-8292" class="p-contact__info-tel"><span class="tel-icon"><img src="/assets/img/icon/icon_tel3.svg" alt="TEL" width="19" height="31" loading="lazy"></span>03-6883-8292</a>          
+        </div>
+      </div>
+  </section>
+
+	
+</Layout>
+
+
+
+
+
+
+
+
+
