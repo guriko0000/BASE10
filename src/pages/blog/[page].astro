@@ -1,0 +1,204 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getBlogs, getCategories } from '../../library/microcms';
+
+const POSTS_PER_PAGE = 5;
+
+export async function getStaticPaths() {
+  const POSTS_PER_PAGE = 5;
+
+  const response = await getBlogs({ limit: 1 }); // 軽量取得
+  const totalPages = Math.ceil(response.totalCount / POSTS_PER_PAGE);
+
+  // /blog は index.astro が担当するので、2ページ目以降のみ生成
+  return Array.from({ length: totalPages - 1 }, (_, i) => ({
+    params: { page: String(i + 2) }, // page: '2'〜
+  }));
+}
+
+const { params } = Astro;
+const currentPage = Number(params.page);
+const offset = (currentPage - 1) * POSTS_PER_PAGE;
+
+const response = await getBlogs({ limit: POSTS_PER_PAGE, offset });
+const totalPages = Math.ceil(response.totalCount / POSTS_PER_PAGE);
+const range = 3;
+
+const centerPages = Array.from({ length: totalPages }, (_, i) => i + 1)
+  .filter(page =>
+    page !== 1 &&
+    page !== totalPages &&
+    page >= currentPage - range &&
+    page <= currentPage + range
+  );
+
+const categoryList = await getCategories();
+---
+
+
+<Layout>
+<section class="">
+  <div class="l-inner">
+
+<div class="wrap">
+    <div class="main">
+
+  <h2>記事一覧（{currentPage}ページ目）</h2>
+  <ul class="l-grid l-grid--col3">
+    {response.contents.map(content => (
+      <li class="c-card l-grid__item">
+        <a href={`/blog/${content.id}`}>
+        <div class="c-card__img">
+        {content.thumbnail?.url && (
+          <img 
+            src={content.thumbnail.url} 
+            alt={content.title} 
+            width={150} 
+            height={100} 
+          />
+        )}
+        </div>
+        <p class="c-card__title">{content.title}</p>
+        {content.category && content.category.length > 0 && (
+          <ul class="c-card__cate-wrap">
+            {content.category.map((cat) => (
+              <li class="c-card__">{cat["cate-name"]}</li>
+            ))}
+          </ul>
+        )}
+      </a>
+      </li>
+    ))}
+  </ul>
+
+  <!-- <div class="p-post__pagination">
+    <nav class="c-pagination">
+      <ul>
+        {currentPage > 1 && (
+          <li class="prev">
+            <a href={`/blog/page/${currentPage - 1}`} aria-label="前のページ"></a>
+          </li>
+        )}
+    
+        {/* 最初のページ */}
+        <li>
+          {currentPage === 1 ? (
+            <span class="current">1</span>
+          ) : (
+            <a href="/blog/page/1">1</a>
+          )}
+        </li>
+    
+        {currentPage > 1 + range + 1 && <li><span>…</span></li>}
+    
+        {/* 中央ページ（±range） */}
+        {centerPages.map(page => (
+          <li>
+            {page === currentPage ? (
+              <span class="current">{page}</span>
+            ) : (
+              <a href={`/blog/page/${page}`}>{page}</a>
+            )}
+          </li>
+        ))}
+    
+        {currentPage < totalPages - range - 1 && <li><span>…</span></li>}
+    
+        {/* 最後のページ */}
+        {totalPages > 1 && (
+          <li>
+            {currentPage === totalPages ? (
+              <span class="current">{totalPages}</span>
+            ) : (
+              <a href={`/blog/page/${totalPages}`}>{totalPages}</a>
+            )}
+          </li>
+        )}
+    
+        {currentPage < totalPages && (
+          <li class="next">
+            <a href={`/blog/page/${currentPage + 1}`} aria-label="次のページ"></a>
+          </li>
+        )}
+      </ul>
+    </nav>    
+</div> -->
+
+
+<div class="p-post__pagination">
+  <nav class="c-pagination">
+    <ul>
+      {currentPage > 1 && (
+        <li class="prev">
+          <a href={currentPage === 2 ? '/blog' : `/blog/${currentPage - 1}`} aria-label="前のページ">‹</a>
+        </li>
+      )}
+
+      {/* 最初のページ */}
+      <li>
+        {currentPage === 1 ? (
+          <span class="current">1</span>
+        ) : (
+          <a href="/blog">1</a>
+        )}
+      </li>
+
+      {currentPage > 1 + range + 1 && <li><span>…</span></li>}
+
+      {centerPages.map(page => (
+        <li>
+          {page === currentPage ? (
+            <span class="current">{page}</span>
+          ) : (
+            <a href={`/blog/${page}`}>{page}</a>
+          )}
+        </li>
+      ))}
+
+      {currentPage < totalPages - range - 1 && <li><span>…</span></li>}
+
+      {/* 最後のページ */}
+      {totalPages > 1 && (
+        <li>
+          {currentPage === totalPages ? (
+            <span class="current">{totalPages}</span>
+          ) : (
+            <a href={`/blog/${totalPages}`}>{totalPages}</a>
+          )}
+        </li>
+      )}
+
+      {currentPage < totalPages && (
+        <li class="next">
+          <a href={`/blog/${currentPage + 1}`} aria-label="次のページ">›</a>
+        </li>
+      )}
+    </ul>
+  </nav>
+</div>
+
+
+
+
+</div>
+
+<aside>
+  <h2 class="c-primary-title">カテゴリ一覧</h2>
+  <ul>
+    {categoryList.contents.map((cat) => (
+      <li>
+        <a href={`/blog/category/${cat.id}`}>{cat["cate-name"]}</a>
+      </li>
+    ))}
+  </ul>
+</aside>
+
+</div>
+
+</div>
+  
+  
+
+</div>
+</section>
+</Layout>
