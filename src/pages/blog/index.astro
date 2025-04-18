@@ -22,40 +22,69 @@ const categoryList = await getCategories();
 ---
 
 
-<Layout>
-<section class="l-section l-section--first l-section--last">
+<Layout title="BLOG">
+  <section class="p-under-mv">
+    <div class="l-inner">
+      <h1 class="p-under-mv__title">
+        <span class="en">Blog</span>
+        <span class="ja">ブログ</span>
+      </h1>
+    </div>
+  </section>
+<section class="p-post l-section l-section--first l-section--last">
   <div class="l-inner">
 
     <div class="l-section__main">
-      <h2>記事一覧（{currentPage}ページ目）</h2>
-      <ul class="l-grid l-grid--col3">
-        {response.contents.map(content => (
+      <ul class="l-grid l-grid--col2">
+        {response.contents.map((content) => (
           <li class="c-card l-grid__item">
             <a href={`/blog/${content.id}`}>
-            <div class="c-card__thmb">
-            {content.thumbnail?.url && (
-              <img 
-                src={content.thumbnail.url} 
-                alt={content.title} 
-                width={150} 
-                height={100} 
-              />
-            )}
-            </div>
-            <div class="c-card__body">
-              <p class="c-card__title">{content.title}</p>
-              {content.category && content.category.length > 0 && (
-                <ul class="c-card__cate-wrap">
-                  {content.category.map((cat) => (
-                    <li class="c-card__">{cat["cate-name"]}</li>
-                  ))}
-                </ul>
-              )}
-            </div>
-          </a>
+              <div class="c-card__thumb">
+                {content.thumbnail?.url && (
+                  <img 
+                    src={content.thumbnail.url} 
+                    alt={content.title} 
+                    width={150} 
+                    height={100} 
+                  />
+                )}
+              </div>
+              <div class="c-card__body">
+                
+      
+                {(content.category?.length > 0 || content.publishedAt) && (
+                  <div class="c-card__meta">
+                    {content.publishedAt && (
+                      <time
+                        class="c-card__date"
+                        datetime={new Date(content.publishedAt).toISOString().split('T')[0]}
+                      >
+                        {(() => {
+                          const d = new Date(content.publishedAt);
+                          const yyyy = d.getFullYear();
+                          const mm = String(d.getMonth() + 1).padStart(2, '0');
+                          const dd = String(d.getDate()).padStart(2, '0');
+                          return `${yyyy}.${mm}.${dd}`;
+                        })()}
+                      </time>
+                    )}
+                    {content.category?.length > 0 && (
+                      <ul class="c-card__cate-wrap">
+                        {content.category.map((cat) => (
+                          <li class="c-card__cate">{cat["cate-name"]}</li>
+                        ))}
+                      </ul>
+                    )}
+                  </div>
+                )}
+
+                <p class="c-card__title">{content.title}</p>
+              </div>
+            </a>
           </li>
         ))}
       </ul>
+      
       <!-- ページネーション -->
       <div class="p-post__pagination">
         <nav class="c-pagination">
@@ -70,14 +99,14 @@ const categoryList = await getCategories();
             {/* 最初のページ */}
             <li>
               {currentPage === 1 ? (
-                <span class="current">1</span>
+                <span class="page-numbers current">1</span>
               ) : (
                 <a href="/blog">1</a>  // ← "/blog/page/1" じゃなくて "/blog"
               )}
             </li>
 
             {/* …省略 */}
-            {currentPage > 1 + range + 1 && <li><span>…</span></li>}
+            {currentPage > 1 + range + 1 && <li class=""><span>…</span></li>}
 
             {/* 中央ページ */}
             {centerPages.map(page => (
@@ -85,7 +114,7 @@ const categoryList = await getCategories();
                 {page === currentPage ? (
                   <span class="current">{page}</span>
                 ) : (
-                  <a href={`/blog/${page}`}>{page}</a>  // ←ここも修正
+                  <a href={`/blog/${page}`} class="page-numbers">{page}</a>  // ←ここも修正
                 )}
               </li>
             ))}
@@ -99,7 +128,7 @@ const categoryList = await getCategories();
                 {currentPage === totalPages ? (
                   <span class="current">{totalPages}</span>
                 ) : (
-                  <a href={`/blog/${totalPages}`}>{totalPages}</a>
+                  <a href={`/blog/${totalPages}`} class="page-numbers">{totalPages}</a>
                 )}
               </li>
             )}
@@ -116,15 +145,17 @@ const categoryList = await getCategories();
 
     </div>
 
-    <aside class="l-section__sub">
-      <h2 class="c-primary-title">カテゴリ一覧</h2>
-      <ul>
-        {categoryList.contents.map((cat) => (
-          <li>
-            <a href={`/blog/category/${cat.id}`}>{cat["cate-name"]}</a>
-          </li>
-        ))}
-      </ul>
+    <aside class="l-section__sub p-sidebar">
+      <div class="p-sidebar__container">
+        <h2 class="p-sidebar__title">カテゴリ一覧</h2>
+        <ul class="p-sidebar__list">
+          {categoryList.contents.map((cat) => (
+            <li>
+              <a href={`/blog/category/${cat.id}`}>{cat["cate-name"]}</a>
+            </li>
+          ))}
+        </ul>
+      </div>
     </aside>  
 
   </div>

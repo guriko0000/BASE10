@@ -1,0 +1,93 @@
+---
+import { getCategories, getBlogDetail, getBlogs } from '../../library/microcms';
+
+export async function getStaticPaths() {
+  const limit = 100;
+  let offset = 0;
+  let allContents: { id: string }[] = [];
+  let hasMore = true;
+
+  while (hasMore) {
+    const res = await getBlogs({ limit, offset, fields: ["id"] });
+    allContents = allContents.concat(res.contents);
+    offset += limit;
+    hasMore = res.contents.length === limit;
+  }
+
+  return allContents.map((content) => ({
+    params: { blogId: content.id },
+  }));
+}
+const { blogId } = Astro.params;
+const blog = await getBlogDetail(blogId);
+const categoryList = await getCategories();
+
+let allBlogs: { id: string; title: string; publishedAt: string }[] = [];
+let offset = 0;
+const limit = 100;
+let hasMore = true;
+
+while (hasMore) {
+  const res = await getBlogs({
+    offset,
+    limit,
+    fields: ['id', 'title', 'publishedAt'],
+    orders: '-publishedAt',
+  });
+  allBlogs = allBlogs.concat(res.contents);
+  offset += limit;
+  hasMore = res.contents.length === limit;
+}
+
+const currentIndex = allBlogs.findIndex((item) => item.id === blogId);
+const nextBlog = allBlogs[currentIndex + 1];
+const prevBlog = allBlogs[currentIndex - 1];
+---
+
+
+<Layout title="BLOG">
+  <section class="p-under-mv">
+    <div class="l-inner">
+      <h1 class="p-under-mv__title">
+        <span class="en">Blog</span>
+        <span class="ja">ブログ</span>
+      </h1>
+    </div>
+  </section>
+
+  {blog.category && blog.category.length > 0 && (
+    <ul class="post-category">
+      {blog.category.map((cat) => (
+        <li>{cat["cate-name"]}</li>
+      ))}
+    </ul>
+  )}
+  
+  <p class="publishedAt">公開日は：{blog.publishedAt.substring(0, 10)}</p>
+  <div class="post-thumb">
+    {blog.thumbnail?.url && (
+      <img src={blog.thumbnail.url} alt="{blog.title}" />
+    )}
+  </div>
+  <div class="post-content" set:html={blog.content} /></div>
+
+  <nav class="post-nav">
+    <ul>
+      {prevBlog && (
+        <li class="prev">
+          <a href={`/blog/${prevBlog.id}`}>← 次の記事へ</a>
+        </li>
+      )}
+      {nextBlog && (
+        <li class="next">
+          <a href={`/blog/${nextBlog.id}`}>前の記事へ →</a>
+        </li>
+      )}
+
+    </ul>
+  </nav>
+  
+
+
+
+</Layout>

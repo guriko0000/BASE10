@@ -12,8 +12,12 @@
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
+    gap: 5px 10px;
     position: relative;
     padding: 0 10px;
+    @include mq(md) {
+      gap: 5px 6px;
+    }
   }
 
   li a {
@@ -29,23 +33,20 @@
     justify-content: center;    
     width: 40px;
     height: 40px;
-    border: 1px solid $accent-color;
-    background-color: $accent-color;
-    border-radius: 4px;
+    border: 1px solid #CECECE;
     font-family: $third-font-family;
-    color: #fff;
+    font-size: 1.4rem;  
     line-height: 1;
-    margin: 3px;
     @include mq(md) {
-      width: 36px;
-      height: 36px;
-      margin: 3px;
+      width: 32px;
+      height: 32px;
+      font-size: 1.2rem;
     }
   }
 
   li .current {
-    background-color: $main-color;
-    border: 1px solid $main-color;
+    background-color: #C7B9A4;
+    border: 1px solid #C7B9A4;
     color: #fff;
   }
 
@@ -78,23 +79,31 @@
     &::before {
       content: '';
       display: inline-block;
-      width: 24px;
-      height: 24px;      
-      background-image: url(../images/icon/icon_arrow-left-blk.svg);
+      width: 20px;
+      height: 20px;      
+      background-image: url(../img/icon/icon_left-beige.svg);
       background-size: contain;
-      background-repeat: no-repeat;  
+      background-repeat: no-repeat;
+      @include mq(md) {
+        width: 16px;
+        height: 16px;   
+      }
     }
   }
   li .next {
     &::after {
       content: '';
       display: inline-block;
-      width: 24px;
-      height: 24px;      
-      background-image: url(../images/icon/icon_arrow-right-blk02.svg);
+      width: 20px;
+      height: 20px;      
+      background-image: url(../img/icon/icon_right-beige.svg);
       background-size: contain;
       background-repeat: no-repeat;  
-      margin-left: 8px;
+      // margin-left: 8px;
+      @include mq(md) {
+        width: 16px;
+        height: 16px;   
+      }
     }
   }
 }

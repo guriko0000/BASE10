@@ -1,0 +1,145 @@
+@use "../../../global/index" as *;
+
+/* -------------------------------------
+        p-post
+-----------------------------------------*/
+
+.p-post {
+  .l-inner {
+    display: flex;    
+  }
+
+  &__pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 60px;
+    @include mq(md) {
+      margin-top: 50px;
+    }
+  }
+
+&__post {
+
+  margin-top: 40px;
+    @include mq(md) {
+      margin-top: 30px;
+    }
+    
+    p {
+      margin-top: 30px;
+      @include mq(md) {
+        margin-top: 20px;
+      }
+    }
+
+    figure {
+      margin-top: 40px;
+      @include mq(md) {
+        margin-top: 30px;
+      }
+    }
+
+    ul {
+      padding-left: 1.2em;
+      margin-top: 60px;
+      @include mq(md) {
+        margin-top: 40px;
+      }
+
+      li {
+        text-indent: -0.9em;
+        &:not(:first-child) {
+          margin-top: 10px;
+        }
+    
+        &::before {
+          content:  "";
+          width: 4px;
+          height: 4px;
+          display: inline-block;
+          background-color: $color-black01;
+          border-radius: 50%;  
+          margin-right: 10px;
+          margin-bottom: 3px;
+        }
+      }
+    }
+
+    ol {
+      padding-left: 1.3em;
+      counter-reset: number;
+      margin-top: 60px;
+      @include mq(md) {
+        margin-top: 40px;
+      }
+
+      li {
+        counter-increment: number;
+        text-indent: -1.2em;
+
+        &::before {
+        content: counter(number)". ";
+        margin-right: 2px;
+        }
+
+        &:not(:first-child) {
+          margin-top: 10px;
+        }
+      }
+    }
+
+    a {
+      text-decoration: underline;
+      transition: opacity 0.25s;
+      &:hover, &:focus-visible {
+        opacity: 0.7;
+      }
+    }
+
+    h2 {
+      font-size: 2.8rem;
+      line-height: 1.5;
+      margin-top: 80px;
+      @include mq(md) {
+        font-size: 2rem;
+        margin-top: 50px;
+      }
+
+      & + * {
+        margin-top: 30px;
+      }
+    }
+
+    h3 {
+      border-bottom: 1px solid #696969;
+      font-size: 2.4rem;
+      line-height: 1.5;
+      padding-bottom: 10px;
+      margin-top: 60px;
+      @include mq(md) {
+        font-size: 1.8rem;
+        margin-top: 40px;
+      }
+
+      & + * {
+        margin-top: 30px;
+      }
+    }
+
+    h4 {
+      background-color: $main-bg;
+      font-size: 2rem;
+      line-height: 1.5;
+      padding: 15px 20px;
+      margin-top: 60px;
+      @include mq(md) {
+        font-size: 1.6rem;
+        margin-top: 40px;
+      }
+
+      & + * {
+        margin-top: 30px;
+      }
+    }
+  }
+}
