@@ -3,7 +3,7 @@ import Layout from '../../layouts/Layout.astro';
 import { getBlogs, getCategories } from '../../library/microcms';
 
 const currentPage = 1;
-const limit = 5;
+const limit = 2;
 const offset = 0;
 
 const response = await getBlogs({ limit, offset });
@@ -92,14 +92,14 @@ const categoryList = await getCategories();
             {/* 前のページリンク */}
             {currentPage > 1 && (
               <li class="prev">
-                <a href={currentPage === 2 ? '/blog' : `/blog/${currentPage - 1}`} aria-label="前のページ">‹</a>
+                <a href={currentPage === 2 ? '/blog' : `/blog/${currentPage - 1}`} class="prev" aria-label="前のページ"></a>
               </li>
             )}
 
             {/* 最初のページ */}
             <li>
               {currentPage === 1 ? (
-                <span class="page-numbers current">1</span>
+                <span class="page-numbers is-current">1</span>
               ) : (
                 <a href="/blog">1</a>  // ← "/blog/page/1" じゃなくて "/blog"
               )}
@@ -136,7 +136,7 @@ const categoryList = await getCategories();
             {/* 次のページリンク */}
             {currentPage < totalPages && (
               <li class="next">
-                <a href={`/blog/${currentPage + 1}`} aria-label="次のページ">›</a>
+                <a href={`/blog/${currentPage + 1}`} class="next" aria-label="次のページ"></a>
               </li>
             )}
           </ul>

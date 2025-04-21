@@ -6,7 +6,10 @@
 
 .p-post {
   .l-inner {
-    display: flex;    
+    display: flex;
+    @include mq(md) {
+      flex-direction: column;
+    }   
   }
 
   &__pagination {
