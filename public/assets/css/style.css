@@ -3369,6 +3369,21 @@ body {
 }
 
 /* -------------------------------------
+        p-works
+-----------------------------------------*/
+@media screen and (max-width: 576px) {
+  .p-works .l-grid--col2 {
+    gap: 40px;
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+@media screen and (max-width: 767px) {
+  .p-works .c-works__tag {
+    font-size: 1.2rem;
+  }
+}
+
+/* -------------------------------------
         p-contact
 -----------------------------------------*/
 .p-contact .l-inner {

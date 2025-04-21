@@ -1,0 +1,182 @@
+---
+import Layout from '../../../../layouts/Layout.astro';
+import { getBlogs, getCategories } from '../../../../library/microcms';
+
+export async function getStaticPaths() {
+  const POSTS_PER_PAGE = 1;//投稿数を取得する為1件だけで見る用
+  const allCategories = await getCategories();
+  const paths = [];
+
+  for (const cat of allCategories.contents) {
+    const res = await getBlogs({
+      filters: `category[contains]${cat.id}`,
+      limit: 1,
+    });
+
+    const totalPages = Math.ceil(res.totalCount / POSTS_PER_PAGE);
+
+    for (let i = 2; i <= totalPages; i++) {
+      paths.push({
+        params: {
+          categoryId: cat.id,
+          page: String(i),
+        },
+      });
+    }
+  }
+
+  return paths;
+}
+
+const POSTS_PER_PAGE = 20;//表示件数
+const { categoryId, page } = Astro.params;
+
+const currentPage = Number(page);
+const offset = (currentPage - 1) * POSTS_PER_PAGE;
+
+let response;
+try {
+  response = await getBlogs({
+    filters: `category[contains]${categoryId}`,
+    offset,
+    limit: POSTS_PER_PAGE,
+    depth: 2,
+  });
+} catch (err) {
+  console.error('getBlogs error:', err);
+  throw new Error(`getBlogs failed for category ${categoryId}, page ${page}`);
+}
+
+const totalPages = Math.ceil(response.totalCount / POSTS_PER_PAGE);
+const range = 3;
+
+const centerPages = Array.from({ length: totalPages }, (_, i) => i + 1)
+  .filter(p =>
+    p !== 1 &&
+    p !== totalPages &&
+    p >= currentPage - range &&
+    p <= currentPage + range
+  );
+
+let allCategories = [];
+let currentCategory = null;
+
+try {
+  allCategories = await getCategories();
+  currentCategory = allCategories.contents.find(cat => cat.id === categoryId);
+} catch (err) {
+  console.error('getCategories error:', err);
+}
+---
+
+<Layout title="">
+  <section class="p-under-mv">
+    <div class="l-inner">
+      <h1 class="p-under-mv__title">
+        <span class="en">Blog</span>
+        <span class="ja">ブログ</span>
+      </h1>
+    </div>
+  </section>
+
+  <div class="p-post l-section l-section--first l-section--last">
+    <div class="l-inner">
+
+      <div class="l-section__main">
+        <ul class="l-grid l-grid--col2">
+          {response.contents.map((content) => (
+            <li class="c-card l-grid__item">
+              <a href={`/blog/${content.id}`}>
+                <div class="c-card__thumb">
+                  {content.thumbnail?.url && (
+                    <img src={content.thumbnail.url} alt={content.title} width={150} height={100} />
+                  )}
+                </div>
+                <div class="c-card__body">
+                  <p class="c-card__title">{content.title}</p>
+                </div>
+              </a>
+            </li>
+          ))}
+        </ul>
+
+      <!-- ページネーション -->
+      {totalPages > 1 && (
+      <div class="p-post__pagination">
+        <nav class="c-pagination">
+          <ul>
+            {/* 前へ */}
+            {currentPage > 1 && (
+              <li class="prev">
+                <a href={currentPage === 2
+                  ? `/blog/category/${categoryId}`
+                  : `/blog/category/${categoryId}/${currentPage - 1}`} aria-label="前のページ"></a>
+              </li>
+            )}
+
+            {/* 最初のページ */}
+            <li>
+              {currentPage === 1 ? (
+                <span class="page-numbers is-current">1</span>
+              ) : (
+                <a href={`/blog/category/${categoryId}`} class="page-numbers">1</a>
+              )}
+            </li>
+
+            {/* 省略 */}
+            {currentPage > range + 2 && <li><span>…</span></li>}
+
+            {/* 中央 */}
+            {centerPages.map((p) => (
+              <li>
+                {p === currentPage ? (
+                  <span class="page-numbers is-current">{p}</span>
+                ) : (
+                  <a href={`/blog/category/${categoryId}/${p}`} class="page-numbers">{p}</a>
+                )}
+              </li>
+            ))}
+
+            {/* 省略 */}
+            {currentPage < totalPages - range - 1 && <li><span>…</span></li>}
+
+            {/* 最後のページ */}
+            {totalPages > 1 && (
+              <li>
+                {currentPage === totalPages ? (
+                  <span class="page-numbers is-current">{totalPages}</span>
+                ) : (
+                  <a href={`/blog/category/${categoryId}/${totalPages}`} class="page-numbers">{totalPages}</a>
+                )}
+              </li>
+            )}
+
+            {/* 次へ */}
+            {currentPage < totalPages && (
+              <li class="next">
+                <a href={`/blog/category/${categoryId}/${currentPage + 1}`} aria-label="次のページ"></a>
+              </li>
+            )}
+          </ul>
+        </nav>
+      </div>
+      )}
+    </div>
+
+      <!-- サイドバーカテゴリ一覧（任意） -->
+      <aside class="l-section__sub p-sidebar">
+        <div class="p-sidebar__container">
+          <h2 class="p-sidebar__title">カテゴリ一覧</h2>
+          <ul class="p-sidebar__list">
+            {allCategories.contents.map((cat) => (
+              <li>
+                <a href={`/blog/category/${cat.id}`}>{cat["cate-name"]}</a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </aside>
+
+    </div>
+  </section>
+</Layout>

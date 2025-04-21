@@ -1,0 +1,19 @@
+@use "../../../global/index" as *;
+
+/* -------------------------------------
+        p-works
+-----------------------------------------*/
+.p-works {
+  .l-grid--col2 {
+    @include mq(sm) {
+      gap: 40px;
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+
+  .c-works__tag {
+    @include mq(md) {
+      font-size: 1.2rem;
+    }
+  }
+}

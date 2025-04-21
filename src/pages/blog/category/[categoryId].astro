@@ -1,0 +1,200 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import { getBlogs, getCategories } from "../../../library/microcms";
+import type { Blog } from "../../../library/microcms";
+
+const POSTS_PER_PAGE = 20; //表示件数
+const offset = 0;
+
+export async function getStaticPaths() {
+  const categories = await getCategories();
+  return categories.contents.map((cat) => ({
+    params: { categoryId: cat.id },
+  }));
+}
+
+// パラメータ取得
+const { categoryId } = Astro.params;
+
+// カテゴリに属する記事一覧を取得（1ページ目）
+const response = await getBlogs({
+  filters: `category[contains]${categoryId}`,
+  offset,
+  limit: POSTS_PER_PAGE,
+  depth: 2,
+});
+
+// 全カテゴリ取得して現在のカテゴリ名を探す
+const allCategories = await getCategories();
+const currentCategory = allCategories.contents.find(
+  (cat) => cat.id === categoryId
+);
+
+// サイドバー用
+const categoryList = allCategories;
+
+// ページネーション用
+const totalPages = Math.ceil(response.totalCount / POSTS_PER_PAGE);
+const currentPage = 1;
+const range = 3;
+
+const centerPages = Array.from({ length: totalPages }, (_, i) => i + 1).filter(
+  (p) =>
+    p !== 1 &&
+    p !== totalPages &&
+    p >= currentPage - range &&
+    p <= currentPage + range
+);
+---
+
+<Layout title="">
+  <section class="p-under-mv">
+    <div class="l-inner">
+      <h1 class="p-under-mv__title">
+        <span class="en">Blog</span>
+        <span class="ja">ブログ</span>
+      </h1>
+    </div>
+  </section>
+  <div class="p-post l-section l-section--first l-section--last">
+    <div class="l-inner">
+      <div class="l-section__main">
+        <ul class="l-grid l-grid--col2">
+          {
+            response.contents.map((blog: Blog) => (
+              <li class="c-card l-grid__item">
+                <a href={`/blog/${blog.id}`}>
+                  <div class="c-card__thumb">
+                    {blog.thumbnail?.url && (
+                      <img
+                        src={blog.thumbnail.url}
+                        alt={blog.title}
+                        width={150}
+                        height={100}
+                      />
+                    )}
+                  </div>
+                  <div class="c-card__body">
+                    {(blog.category?.length > 0 || blog.publishedAt) && (
+                      <div class="c-card__meta">
+                        {blog.publishedAt && (
+                          <time
+                            class="c-card__date"
+                            datetime={
+                              new Date(blog.publishedAt)
+                                .toISOString()
+                                .split("T")[0]
+                            }
+                          >
+                            {(() => {
+                              const d = new Date(blog.publishedAt);
+                              const yyyy = d.getFullYear();
+                              const mm = String(d.getMonth() + 1).padStart(
+                                2,
+                                "0"
+                              );
+                              const dd = String(d.getDate()).padStart(2, "0");
+                              return `${yyyy}.${mm}.${dd}`;
+                            })()}
+                          </time>
+                        )}
+                        {blog.category?.length > 0 && (
+                          <ul class="c-card__cate-wrap">
+                            {blog.category.map((cat) => (
+                              <li class="c-card__cate">{cat["cate-name"]}</li>
+                            ))}
+                          </ul>
+                        )}
+                      </div>
+                    )}
+                    <p class="c-card__title">{blog.title}</p>
+                  </div>
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+
+        <!-- ページネーション -->
+        {
+          totalPages > 1 && (
+            <div class="p-post__pagination">
+              <nav class="c-pagination">
+                <ul>
+                  {/* 最初のページ（現在） */}
+                  <li>
+                    <span class="page-numbers is-current">1</span>
+                  </li>
+
+                  {/* 省略記号 */}
+                  {currentPage > 1 + range + 1 && (
+                    <li>
+                      <span>…</span>
+                    </li>
+                  )}
+
+                  {/* 中央ページ */}
+                  {centerPages.map((p) => (
+                    <li>
+                      <a
+                        href={`/blog/category/${categoryId}/${p}`}
+                        class="page-numbers"
+                      >
+                        {p}
+                      </a>
+                    </li>
+                  ))}
+
+                  {/* 最終ページ */}
+                  {totalPages > 1 && (
+                    <>
+                      {currentPage < totalPages - range - 1 && (
+                        <li>
+                          <span>…</span>
+                        </li>
+                      )}
+                      <li>
+                        <a
+                          href={`/blog/category/${categoryId}/${totalPages}`}
+                          class="page-numbers"
+                        >
+                          {totalPages}
+                        </a>
+                      </li>
+                    </>
+                  )}
+
+                  {/* 次のページ */}
+                  {totalPages > 1 && (
+                    <li class="next">
+                      <a
+                        href={`/blog/category/${categoryId}/2`}
+                        class="next"
+                        aria-label="次のページ"
+                      />
+                    </li>
+                  )}
+                </ul>
+              </nav>
+            </div>
+          )
+        }
+      </div>
+
+      <aside class="l-section__sub p-sidebar">
+        <div class="p-sidebar__container">
+          <h2 class="p-sidebar__title">カテゴリ一覧</h2>
+          <ul class="p-sidebar__list">
+            {
+              categoryList.contents.map((cat) => (
+                <li>
+                  <a href={`/blog/category/${cat.id}`}>{cat["cate-name"]}</a>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </div>
+</Layout>
