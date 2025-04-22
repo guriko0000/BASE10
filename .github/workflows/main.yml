@@ -1,0 +1,45 @@
+name: Deploy website on push #ここは何でもOK
+on:
+  push:
+    branches: [main] #対象にするブランチ
+  repository_dispatch:
+    types: [update] #microCMSのwebhookで設定したトリガーイベント名
+
+env: #後述
+  MICROCMS_SERVICE_DOMAIN: ${{ secrets.MICROCMS_SERVICE_DOMAIN }}
+  MICROCMS_API_KEY: ${{ secrets.MICROCMS_API_KEY }}
+  
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest #使用する仮想環境。windowsやmacosも指定できるとのこと。
+
+    steps:
+      - name: Get latest code
+        uses: actions/checkout@v3 #リポジトリからコードを取得するためのアクション
+        
+      - name: Use Node.js 18
+        uses: actions/setup-node@v3 #ワークフロー内でnodejsを使うためのアクション
+        with:
+          node-version: '22' #ローカルのnodeのバージョンと合わせなくていいみたい
+
+
+      - name: Debug Environment
+        run: |
+          echo "Service Domain: ${MICROCMS_SERVICE_DOMAIN}"
+          echo "API Key: ${MICROCMS_API_KEY}"
+          
+          
+      - name: Build Project
+        run: |
+          npm install 
+          npm run build
+          
+      - name: Sync files
+        uses: SamKirkland/FTP-Deploy-Action@4.3.1 #SamKirklandさんが作った、FTP経由でファイルをデプロイするためのアクション
+        with: #後述
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          server-dir: ${{ secrets.FTP_SERVER_DIR }}
+          local-dir: ./dist/ #Astroの場合は基本このままでいいと思います
