@@ -592,7 +592,15 @@ const response = await getBlogs({
               <a href={`/blog/${content.id}`} class="c-media">
               <div class="c-media__body">
                 <span class="c-media__date">
-                  <time datetime="2024-03-11">2024.03.11</time>
+                  <time class="c-card__date" datetime={new Date(content.publishedAt).toISOString().split('T')[0]}>
+                  {(() => {
+                        const d = new Date(content.publishedAt);
+                        const yyyy = d.getFullYear();
+                        const mm = String(d.getMonth() + 1).padStart(2, '0');
+                        const dd = String(d.getDate()).padStart(2, '0');
+                        return `${yyyy}.${mm}.${dd}`;
+                      })()}
+                  </time>
                 </span>
                 <p class="c-media__title">{content.title}</p>
                 {content.category && content.category.length > 0 && (
