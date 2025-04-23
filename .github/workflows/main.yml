@@ -1,9 +1,10 @@
 name: Deploy website on push #ここは何でもOK
 on:
   push:
-    branches: [main] #対象にするブランチ
+    branches:
+      - main
   repository_dispatch:
-    types: [update] #microCMSのwebhookで設定したトリガーイベント名
+    types: [update]
 
 env: #後述
   MICROCMS_SERVICE_DOMAIN: ${{ secrets.MICROCMS_SERVICE_DOMAIN }}
