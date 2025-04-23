@@ -18,7 +18,7 @@ import Layout from '../layouts/Layout.astro';
     <div class="l-inner">
       <h2 class="c-color-title">メールでのお問い合わせ</h2>
 
-      <form>        
+      <form id="mailformpro" action="mailformpro/mailformpro.cgi" name="form" method="POST">       
         <dl class="c-form__form">
           <div class="c-form__row">
             <dt class="c-form__head">
@@ -73,6 +73,8 @@ import Layout from '../layouts/Layout.astro';
         </div>
       </div>
   </section>
+
+  <script src="/mailformpro/mailformpro.cgi" id="mfpjs"></script>
 
 	
 </Layout>

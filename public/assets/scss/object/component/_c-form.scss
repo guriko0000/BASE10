@@ -100,14 +100,15 @@
       font-size: 1.6rem;
       padding: 10px 20px;
       @include mq(md) {
-        padding: 10px;
         border-radius: 2px;
+        font-size: 1.4rem;
+        padding: 10px;
       }
     }
 
     textarea {
       padding: 14px 20px;
-      @include mq(md) {
+      @include mq(md) {        
         padding: 10px;
       }
     }
@@ -163,4 +164,28 @@
       color: $main-color;
     }
   }
+}
+
+
+// mailformpro
+form#mailformpro dl dt {
+  font-size: 1.6rem;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  @include mq(md) {
+    font-size: 1.4rem;
+    padding: 0;
+  }
+}
+
+form#mailformpro dl dd {
+  line-height: 1.8;
+  padding: 30px 10px;
+  @include mq(md) {
+    padding: 0;
+  }
+}
+
+form#mailformpro dl dt, form#mailformpro dl dd{
+  border: none;
 }

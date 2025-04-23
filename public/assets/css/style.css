@@ -2462,8 +2462,9 @@ body {
 @media screen and (max-width: 767px) {
   .c-form__data input,
   .c-form__data textarea {
-    padding: 10px;
     border-radius: 2px;
+    font-size: 1.4rem;
+    padding: 10px;
   }
 }
 .c-form__data textarea {
@@ -2539,6 +2540,32 @@ body {
 .c-form__btn:hover, .c-form__btn:focus-visible {
   background-color: #fff;
   color: #AF9272;
+}
+
+form#mailformpro dl dt {
+  font-size: 1.6rem;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+@media screen and (max-width: 767px) {
+  form#mailformpro dl dt {
+    font-size: 1.4rem;
+    padding: 0;
+  }
+}
+
+form#mailformpro dl dd {
+  line-height: 1.8;
+  padding: 30px 10px;
+}
+@media screen and (max-width: 767px) {
+  form#mailformpro dl dd {
+    padding: 0;
+  }
+}
+
+form#mailformpro dl dt, form#mailformpro dl dd {
+  border: none;
 }
 
 /* -------------------------------------
