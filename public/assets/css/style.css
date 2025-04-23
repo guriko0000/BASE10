@@ -2542,6 +2542,15 @@ body {
   color: #AF9272;
 }
 
+form#mailformpro {
+  margin-top: 80px;
+}
+@media screen and (max-width: 767px) {
+  form#mailformpro {
+    margin-top: 40px;
+  }
+}
+
 form#mailformpro dl dt {
   font-size: 1.6rem;
   padding-top: 30px;
@@ -2566,6 +2575,24 @@ form#mailformpro dl dd {
 
 form#mailformpro dl dt, form#mailformpro dl dd {
   border: none;
+}
+
+.mfp_element_submit {
+  background: #AF9272;
+  color: #fff;
+  font-size: 1.6rem;
+  text-shadow: none;
+}
+.mfp_element_submit:hover, .mfp_element_submit:focus-visible {
+  background: #fff;
+  color: #AF9272;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+@media screen and (max-width: 767px) {
+  .mfp_element_submit {
+    font-size: 1.4rem;
+  }
 }
 
 /* -------------------------------------

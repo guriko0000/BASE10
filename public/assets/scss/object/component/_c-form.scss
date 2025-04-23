@@ -168,6 +168,13 @@
 
 
 // mailformpro
+form#mailformpro {
+  margin-top: 80px;
+  @include mq(md) {
+    margin-top: 40px;
+  }
+}
+
 form#mailformpro dl dt {
   font-size: 1.6rem;
   padding-top: 30px;
@@ -188,4 +195,19 @@ form#mailformpro dl dd {
 
 form#mailformpro dl dt, form#mailformpro dl dd{
   border: none;
+}
+
+.mfp_element_submit {
+  background: $main-color;
+  color: #fff;
+  font-size: 1.6rem;
+  text-shadow: none;
+  &:hover, &:focus-visible {
+    background: #fff;
+    color: $main-color;
+    box-shadow: none;
+  }
+  @include mq(md) {
+    font-size: 1.4rem;
+  }
 }

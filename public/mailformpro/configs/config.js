@@ -23,7 +23,7 @@ var mfpConfigs = {
 		'width': 40,
 		'height': 40
 	},
-	'SizeAjustPx': 6,
+	'SizeAjustPx': null,
 	'Stripe': ['dt','dd','tr'],
 	'SoundEffect': false,
 	'SoundEffectDir': 'mfp.statics/audios/',
