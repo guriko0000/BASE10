@@ -1,5 +1,10 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { getBlogs } from '../library/microcms'
+
+const response = await getBlogs({
+  limit: 4
+});
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
@@ -583,114 +588,40 @@ import Layout from "../layouts/Layout.astro";
       <div class="l-inner">
         <h2 class="c-primary-title">Blog</h2>
         <ul class="l-grid l-grid--col2">
-          <li>
-            <a href="" class="c-media">
+
+          {response.contents.map(content => (
+            <li class="">
+              <a href={`/blog/${content.id}`} class="c-media">
               <div class="c-media__body">
-                <span class="c-media__date"
-                  ><time datetime="2024-03-11">2024.03.11</time></span
-                >
-                <h3 class="c-media__title">
-                  麻布十番のSEOを狙えるような記事のタイトルが入ります。
-                </h3>
-                <div class="c-media__tag-wrap">
-                  <span class="c-media__tag">カテゴリ</span>
-                </div>
+                <span class="c-media__date">
+                  <time datetime="2024-03-11">2024.03.11</time>
+                </span>
+                <p class="c-media__title">{content.title}</p>
+                {content.category && content.category.length > 0 && (
+                  <ul class="c-media__tag-wrap">
+                    {content.category.map((cat) => (
+                      <li class="c-media__tag">{cat["cate-name"]}</li>
+                    ))}
+                  </ul>
+                )}
               </div>
               <div class="c-media__img-wrap">
+              {content.thumbnail?.url && (
                 <figure class="c-media__img">
-                  <img
-                    src="/assets/img/top/blog_thumb01.jpg"
-                    alt=""
-                    width="263"
-                    height="183"
-                    loading="lazy"
+                  <img 
+                    src={content.thumbnail.url} 
+                    alt={content.title} 
+                    width={150} 
+                    height={100} 
                   />
                 </figure>
+              )}
               </div>
-            </a>
-          </li>
-          <li>
-            <a href="" class="c-media">
-              <div class="c-media__body">
-                <span class="c-media__date"
-                  ><time datetime="2024-03-11">2024.03.11</time></span
-                >
-                <h3 class="c-media__title">
-                  麻布十番のSEOを狙えるような記事のタイトルが入ります。
-                </h3>
-                <div class="c-media__tag-wrap">
-                  <span class="c-media__tag">カテゴリ</span>
-                  <span class="c-media__tag">カテゴリ</span>
-                  <span class="c-media__tag">カテゴリ</span>
-                  <span class="c-media__tag">カテゴリ</span>
-                  <span class="c-media__tag">カテゴリ</span>
-                </div>
-              </div>
-              <div class="c-media__img-wrap">
-                <figure class="c-media__img">
-                  <img
-                    src="/assets/img/top/blog_thumb02.jpg"
-                    alt=""
-                    width="263"
-                    height="183"
-                    loading="lazy"
-                  />
-                </figure>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="" class="c-media">
-              <div class="c-media__body">
-                <span class="c-media__date"
-                  ><time datetime="2024-03-11">2024.03.11</time></span
-                >
-                <h3 class="c-media__title">
-                  麻布十番のSEOを狙えるような記事のタイトルが入ります。
-                </h3>
-                <div class="c-media__tag-wrap">
-                  <span class="c-media__tag">カテゴリ</span>
-                </div>
-              </div>
-              <div class="c-media__img-wrap">
-                <figure class="c-media__img">
-                  <img
-                    src="/assets/img/top/blog_thumb03.jpg"
-                    alt=""
-                    width="263"
-                    height="183"
-                    loading="lazy"
-                  />
-                </figure>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="" class="c-media">
-              <div class="c-media__body">
-                <span class="c-media__date"
-                  ><time datetime="2024-03-11">2024.03.11</time></span
-                >
-                <h3 class="c-media__title">
-                  麻布十番のSEOを狙えるような記事のタイトルが入ります。
-                </h3>
-                <div class="c-media__tag-wrap">
-                  <span class="c-media__tag">カテゴリ</span>
-                </div>
-              </div>
-              <div class="c-media__img-wrap">
-                <figure class="c-media__img">
-                  <img
-                    src="/assets/img/top/blog_thumb04.jpg"
-                    alt=""
-                    width="263"
-                    height="183"
-                    loading="lazy"
-                  />
-                </figure>
-              </div>
-            </a>
-          </li>
+
+      
+              </a>
+            </li>
+          ))}
         </ul>
         <div class="u-btn-wrap">
           <a href="" class="c-btn">ブログ一覧を見る</a>

@@ -2054,6 +2054,11 @@ body {
   -webkit-transition: 0.3s;
   transition: 0.3s;
 }
+.c-media__body {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
 .c-media__date {
   display: block;
   color: #666;
