@@ -2453,8 +2453,10 @@ body {
   width: 100%;
   border: 1px solid #BDAA93;
   border-radius: 2px;
-  background-color: #ffffff;
+  background-color: #fff;
   border-radius: 6px;
+  -webkit-box-shadow: none;
+          box-shadow: none;
   font-family: "Notosans_subset", sans-serif;
   font-size: 1.6rem;
   padding: 10px 20px;
