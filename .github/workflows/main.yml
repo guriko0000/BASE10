@@ -2,7 +2,7 @@ name: Deploy website on push #ここは何でもOK
 on:
   push:
     branches:
-      - main
+      - master
   repository_dispatch:
     types: [update]
 
