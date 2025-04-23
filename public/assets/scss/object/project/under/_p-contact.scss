@@ -89,4 +89,11 @@
       opacity: 0.7;
     }
   }
+
+  &__thanks-text {
+    margin-top: 60px;
+    @include mq(md) {
+      margin-top: 40px;
+    }
+  }
 }

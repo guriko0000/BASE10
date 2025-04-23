@@ -43,7 +43,7 @@ $config{'SerialFormat'} = '<date>%04d';
 $config{'SerialBoost'} = 0;
 
 ## サンクスページのURL(URLかsend.cgiから見た相対パス)
-$config{'ThanksPage'} = '../thanks.html?no=%s';
+$config{'ThanksPage'} = '../thanks/';
 
 ## 設置者に届くメールの件名
 $config{'subject'} = '[ %s ] お問い合せフォームから';
@@ -61,7 +61,6 @@ $_TEXT{'posted'} = <<'__posted_body__';
 <_resbody_>
 ──────────────────────────
 
-<_mfp_env_>
 ==============================
 株式会社ENVY DESIGN
 〒105-0022
@@ -163,8 +162,8 @@ $config{'dir.AddOns'} = './add-ons/';
 #push @Modules,'MultiConfig';
 
 ## 動作チェック ※本番では消してください
-push @AddOns,'OperationCheck.js';
-push @Modules,'check';
+#push @AddOns,'OperationCheck.js';
+#push @Modules,'check';
 
 ## 迷惑メール対策 
 push @AddOns,'ipblock.js';				## 連続送信ブロック機能

@@ -3518,6 +3518,14 @@ form#mailformpro dl dt, form#mailformpro dl dd {
 .p-contact__info-tel:hover, .p-contact__info-tel:focus-visible {
   opacity: 0.7;
 }
+.p-contact__thanks-text {
+  margin-top: 60px;
+}
+@media screen and (max-width: 767px) {
+  .p-contact__thanks-text {
+    margin-top: 40px;
+  }
+}
 
 /* -------------------------------------
         p-sidebar
