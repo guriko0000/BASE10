@@ -9,7 +9,7 @@ $config{'ConfirmationMode'} = 0;
 $config{'sendmail'} = '/usr/sbin/sendmail';
 
 ## フォームの宛先
-push @mailto,'tagami@envydesign.jp';
+push @mailto,'development@envydesign.jp';
 
 ## 管理者宛メールのCC・BCCの宛先
 #$config{'admin_cc'} = 'support@synck.com';
@@ -46,17 +46,13 @@ $config{'SerialBoost'} = 0;
 $config{'ThanksPage'} = '../thanks/';
 
 ## 設置者に届くメールの件名
-$config{'subject'} = '[ %s ] お問い合せフォームから';
+$config{'subject'} = 'お問い合せフォームから';
 
 ## 設置者に届くメールの本文整形
 $_TEXT{'posted'} = <<'__posted_body__';
-<_mfp_jssemantics_>
 <_mfp_date_>
 お問い合せフォームより以下のメールを受付ました。
 ──────────────────────────
-受付番号：<_mfp_serial_>
-入力時間：<_mfp_input_time_>
-確認時間：<_mfp_confirm_time_>
 
 <_resbody_>
 ──────────────────────────
@@ -76,18 +72,21 @@ __posted_body__
 ## 自動返信メールの件名 (有効にする場合は下記の行頭#を外してください。)
 ## ※※※！！！※※※！！！※※※！！！※※※！！！※※※！！！※※※
 
-$config{"ReturnSubject"} = '[ %s ] お問い合せありがとうございました';
+$config{"ReturnSubject"} = 'お問い合せありがとうございました';
 
 ## 自動返信メールの本文
 $_TEXT{'responder'} = <<'__return_body__';
-<_your-name_> 様
+<_お名前_> 様
 ──────────────────────────
 
-この度はお問い合せ頂き誠にありがとうございました。
-以下の内容で受付けいたしました。
-改めて担当者よりご連絡をさせていただきます。
+株式会社ENVY DESIGNです。
+この度はホームページからお問い合わせ頂きありがとうございました。
 
-─ご送信内容の確認─────────────────
+3営業日以内に担当者よりご連絡させて頂きます。
+万が一ご連絡がない場合は、お問い合わせが正常に届いていない可能性がありますので、
+お手数をおかけいたしますが、再度お問い合わせいただくか、お電話にてご連絡頂ければ幸いです。
+
+─▼ご入力頂いた内容はこちら─────────────────
 受付番号：<_mfp_serial_>
 <_resbody_>
 ──────────────────────────
