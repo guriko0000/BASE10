@@ -3464,20 +3464,29 @@ form#mailformpro dl dt, form#mailformpro dl dd {
 }
 .p-contact__info {
   display: grid;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   gap: 50px;
-  grid-template-columns: repeat(2, 1fr);
   margin-top: 100px;
 }
 @media screen and (max-width: 767px) {
   .p-contact__info {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
     gap: 20px;
-    grid-template-columns: repeat(1, 1fr);
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
   }
 }
 .p-contact__info-item {
+  width: calc(50% - 25px);
   background-color: #fff;
   border-radius: 10px;
   font-size: 1.6rem;
@@ -3486,6 +3495,7 @@ form#mailformpro dl dt, form#mailformpro dl dd {
 }
 @media screen and (max-width: 767px) {
   .p-contact__info-item {
+    width: 100%;
     max-width: 400px;
     width: 100%;
     margin: 0 auto;
