@@ -7,6 +7,10 @@ import FixedCta from '../components/FixedCta.astro';
 const { title } = Astro.props;
 const companyName = "麻布・六本木エリアの対面型デザイン制作";
 const pageTitle = title ? `${title} | ${companyName}` : companyName;
+
+const description = "麻布・六本木エリア発、港区近郊で相談しながら進める対面型デザインサービス。Web・ロゴ・印刷物まで幅広く対応します。";
+const pageDescription = title ? `${title}ページ | ${description}` : description;
+
 ---
 
 <!DOCTYPE html>
@@ -18,17 +22,17 @@ const pageTitle = title ? `${title} | ${companyName}` : companyName;
   <meta name="format-detection" content="telephone=no">
   <!-- meta情報 -->
   <title>{ pageTitle }</title>
-  <meta name="description" content="">
+  <meta name="description" content={pageDescription}>
   <meta name="keywords" content="">
   <!-- ogp -->
-  <meta property="og:title" content="">
-  <meta property="og:type" content="">
-  <meta property="og:url" content="">
-  <meta property="og:image" content="">
-  <meta property="og:site_name" content="">
-  <meta property="og:description" content="">
+  <meta property="og:title" content="麻布・六本木エリアの対面型デザイン制作">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://envydesign.jp/base10">
+  <meta property="og:image" content="https://envydesign.jp/base10/assets/img/common/BASE10_ogp.png">
+  <meta property="og:site_name" content="BASE10">
+  <meta property="og:description" content="麻布・六本木エリア発、港区近郊で相談しながら進める対面型デザインサービス。Web・ロゴ・印刷物まで幅広く対応します。">
   <!-- ファビコン -->
-  <link rel="shortcut icon" type="image/x-icon" href="">
+  <link rel="shortcut icon" type="image/x-icon" href="https://envydesign.jp/base10/assets/img/common/favicon.ico">
   <!-- fontawesome -->
   <!-- <script src="https://kit.fontawesome.com/39d42e1acb.js" crossorigin="anonymous"></script> -->
   <!-- Googleフォント -->
@@ -60,13 +64,13 @@ const pageTitle = title ? `${title} | ${companyName}` : companyName;
           <a href="" class="p-info__btn">ご相談はこちら</a>
         </div>
       </div>
-      <div class="p-info__item">
+      <!-- <div class="p-info__item">
         <span class="p-info__icon"><img src="/assets/img/icon/icon_line.svg" alt="" width="60" height="60" loading="lazy"></span>
         <h3 class="p-info__item-title">LINEでご相談</h3>
         <div class="p-info__btn-warp">
           <a href="" class="p-info__btn p-info__btn--line">お気軽にご相談</a>
         </div>
-      </div>
+      </div> -->
       <div class="p-info__item">
         <span class="p-info__icon"><img src="/assets/img/icon/icon_tel.svg" alt="" width="60" height="60" loading="lazy"></span>
         <h3 class="p-info__item-title">電話でご相談</h3>

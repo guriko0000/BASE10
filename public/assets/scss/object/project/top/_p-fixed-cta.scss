@@ -1,9 +1,9 @@
 @use "../../../global/index" as *;
 
 /* -------------------------------------
-        p-fixef-cta
+        p-fixed-cta
 -----------------------------------------*/
-.p-fixef-cta {
+.p-fixed-cta {
   display: none;
   @include mq(md) {
     display: block;
@@ -20,7 +20,8 @@
   }
 
   &__item {
-    width: 50%;
+    // width: 50%;
+    flex: 1;
     height: 67px;
 
     a {
