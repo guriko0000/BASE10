@@ -1,0 +1,33 @@
+---
+const nav = [
+  {
+    href: '/',
+    label: 'Home'
+  },
+  {
+    href: '/service/',
+    label: 'Service'
+  },
+  {
+    href: '/company/',
+    label: 'Company'
+  },
+  {
+    href: '/works/',
+    label: 'Works'
+  },
+  {
+    href: '/blog/',
+    label: 'Blog'
+  },
+]
+---
+
+
+<nav class="l-footer__nav">
+  <ul class="l-footer__nav-list">
+    {nav.map((nav_item) =>
+      <li class="l-footer__nav-item"><a href={nav_item.href}>{nav_item.label}</a></li>
+    )}
+  </ul>
+</nav>

@@ -1,10 +1,11 @@
 ---
 // import '../../public/assets/js/splide/splide.min.css';
 // import '../../public/assets/css/style.css';
-import Nav from '../components/Nav.astro';
+import HeaderNav from '../components/HeaderNav.astro';
+import FooterNav from '../components/FooterNav.astro';
 import FixedCta from '../components/FixedCta.astro';
 const { title } = Astro.props;
-const companyName = "BASE10";
+const companyName = "麻布・六本木エリアの対面型デザイン制作";
 const pageTitle = title ? `${title} | ${companyName}` : companyName;
 ---
 
@@ -42,8 +43,8 @@ const pageTitle = title ? `${title} | ${companyName}` : companyName;
 </head>
 
 <body>
-  <Nav />
-  <!-- <Nav/> -->
+  <HeaderNav />
+  <!-- <HeaderNav/> -->
   <main class="l-main">
     <slot />
   </main>
@@ -84,28 +85,8 @@ const pageTitle = title ? `${title} | ${companyName}` : companyName;
         <div class="l-footer__logo">
           <img src="/assets/img/common/logo-white.svg" alt="" width="122" height="36" loading="lazy">
         </div>
-        <nav class="l-footer__nav">
-          <ul class="l-footer__nav-list">
-            <li class="l-footer__nav-item">
-              <a href="">Home</a>
-            </li>
-            <li class="l-footer__nav-item">
-              <a href="">Services</a>
-            </li>
-            <li class="l-footer__nav-item">
-              <a href="">About</a>
-            </li>
-            <li class="l-footer__nav-item">
-              <a href="">Works</a>
-            </li>
-            <li class="l-footer__nav-item">
-              <a href="">Blog</a>
-            </li>
-            <li class="l-footer__nav-item">
-              <a href="">Contact</a>
-            </li>
-          </ul>
-        </nav>
+          <FooterNav />
+          <!-- <FooterNav/> -->
       </div>
       <div class="l-footer__bottom">
         <p class="l-footer__copyright">© BASE10</p>
