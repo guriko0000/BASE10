@@ -1,26 +1,26 @@
 ---
 const nav = [
   {
-    href: '/',
-    label: 'Home'
+    href: "/",
+    label: "Home",
   },
   {
-    href: '/service/',
-    label: 'Service'
+    href: "/service/",
+    label: "Service",
   },
   {
-    href: '/company/',
-    label: 'Company'
+    href: "/company/",
+    label: "Company",
   },
   {
-    href: '/works/',
-    label: 'Works'
+    href: "/works/",
+    label: "Works",
   },
   // {
   //   href: '/blog/',
   //   label: 'Blog'
   // },
-]
+];
 ---
 
 <header id="header" class="l-header js-header">
@@ -29,7 +29,13 @@ const nav = [
     <div class="l-header__logo">
       <a href="/">
         <span class="l-header__logo-main">
-          <img class="l-header__logo-img" src="/assets/img/common/logo.svg" alt="BASE10" width="117" height="25">
+          <img
+            class="l-header__logo-img"
+            src="/base10/assets/img/common/logo.svg"
+            alt="BASE10"
+            width="117"
+            height="25"
+          />
         </span>
       </a>
     </div>
@@ -37,9 +43,15 @@ const nav = [
     <div class="l-header__container">
       <nav class="p-header-nav">
         <ul class="p-header-nav__list">
-          {nav.map((nav_item) =>
-            <li class="p-header-nav__item"><a href={nav_item.href} class="p-header-nav__link">{nav_item.label}</a></li>
-          )}
+          {
+            nav.map((nav_item) => (
+              <li class="p-header-nav__item">
+                <a href={nav_item.href} class="p-header-nav__link">
+                  {nav_item.label}
+                </a>
+              </li>
+            ))
+          }
         </ul>
       </nav>
       <div class="l-header__btn-wrap">
@@ -47,7 +59,11 @@ const nav = [
       </div>
     </div>
     <!-- ハンバーガーメニュー -->
-    <button class="c-hamburger-btn js-header-btn" aria-label="メニューボタン" aria-expanded="false">
+    <button
+      class="c-hamburger-btn js-header-btn"
+      aria-label="メニューボタン"
+      aria-expanded="false"
+    >
       <span class="c-hamburger-btn__inner">
         <span class="c-hamburger-btn__line"></span>
         <span class="c-hamburger-btn__line"></span>
@@ -60,14 +76,19 @@ const nav = [
   <nav class="p-sub-nav" aria-hidden="true">
     <div class="l-inner p-sub-nav__inner">
       <ul class="p-sub-nav__list">
-        {nav.map((nav_item) =>
-          <li class="p-sub-nav__item"><a href={nav_item.href} class="p-sub-nav__link">{nav_item.label}</a></li>
-        )}
+        {
+          nav.map((nav_item) => (
+            <li class="p-sub-nav__item">
+              <a href={nav_item.href} class="p-sub-nav__link">
+                {nav_item.label}
+              </a>
+            </li>
+          ))
+        }
       </ul>
       <div class="p-sub-nav__btn-wrap">
         <a href="/contact/" class="p-sub-nav__btn">Contact</a>
       </div>
-
     </div>
   </nav>
 </header>

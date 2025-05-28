@@ -1,9 +1,9 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { getBlogs } from '../library/microcms'
+import { getBlogs } from "../library/microcms";
 
 const response = await getBlogs({
-  limit: 4
+  limit: 4,
 });
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
@@ -18,7 +18,8 @@ const response = await getBlogs({
           <hgroup class="p-mv__title-wrap">
             <p class="p-mv__title-sub">
               麻布十番<span class="tag"
-                ><span class="small">1.2km</span>圏内限定</span>
+                ><span class="small">1.2km</span>圏内限定</span
+              >
             </p>
             <h1 class="p-mv__title-main">
               直接会って相談できる<br />デザイン制作サービス
@@ -26,7 +27,7 @@ const response = await getBlogs({
           </hgroup>
           <div class="p-mv__main-img">
             <img
-              src="/assets/img/top/mv_img01.png"
+              src="/base10/assets/img/top/mv_img01.png"
               alt=""
               width="488"
               height="236"
@@ -38,18 +39,18 @@ const response = await getBlogs({
             <picture>
               <source
                 media="(min-width: 768px)"
-                srcset="/assets/img/top/mv_img02.png"
+                srcset="/base10/assets/img/top/mv_img02.png"
                 width="622"
                 height="392"
               />
               <source
                 media="(max-width: 767px)"
-                srcset="/assets/img/top/mv_img02-sp.png"
+                srcset="/base10/assets/img/top/mv_img02-sp.png"
                 width="397"
                 height="251"
               />
               <img
-                src="/assets/img/top/mv_img02.png"
+                src="/base10/assets/img/top/mv_img02.png"
                 alt="こんなお悩みありませんか？「そもそもどうやって発注したらいいのか..」「デジタルに弱いので何から相談していいかわからない」「とりあえず一度話を聞いてほしい」「Webサイトが必要か分からない」「デザインを何とかしなきゃと思いつつ数年経ってしまった」「オンライン中心のコミュニケーションに不安がある。」"
                 width="622"
                 height="392"
@@ -66,7 +67,7 @@ const response = await getBlogs({
           <li class="c-gallery__item">
             <img
               class="c-gallery__image"
-              src="/assets/img/top/gallery_img01.png"
+              src="/base10/assets/img/top/gallery_img01.png"
               alt=""
               width="274"
               height="197"
@@ -77,7 +78,7 @@ const response = await getBlogs({
           <li class="c-gallery__item">
             <img
               class="c-gallery__image"
-              src="/assets/img/top/gallery_img02.png"
+              src="/base10/assets/img/top/gallery_img02.png"
               alt=""
               width="274"
               height="197"
@@ -88,7 +89,7 @@ const response = await getBlogs({
           <li class="c-gallery__item">
             <img
               class="c-gallery__image"
-              src="/assets/img/top/gallery_img03.png"
+              src="/base10/assets/img/top/gallery_img03.png"
               alt=""
               width="274"
               height="197"
@@ -99,7 +100,7 @@ const response = await getBlogs({
           <li class="c-gallery__item">
             <img
               class="c-gallery__image"
-              src="/assets/img/top/gallery_img04.png"
+              src="/base10/assets/img/top/gallery_img04.png"
               alt=""
               width="274"
               height="197"
@@ -110,7 +111,7 @@ const response = await getBlogs({
           <li class="c-gallery__item">
             <img
               class="c-gallery__image"
-              src="/assets/img/top/gallery_img05.png"
+              src="/base10/assets/img/top/gallery_img05.png"
               alt=""
               width="274"
               height="197"
@@ -121,7 +122,7 @@ const response = await getBlogs({
           <li class="c-gallery__item">
             <img
               class="c-gallery__image"
-              src="/assets/img/top/gallery_img06.png"
+              src="/base10/assets/img/top/gallery_img06.png"
               alt=""
               width="274"
               height="197"
@@ -132,7 +133,7 @@ const response = await getBlogs({
           <li class="c-gallery__item">
             <img
               class="c-gallery__image"
-              src="/assets/img/top/gallery_img07.png"
+              src="/base10/assets/img/top/gallery_img07.png"
               alt=""
               width="274"
               height="197"
@@ -143,7 +144,7 @@ const response = await getBlogs({
           <li class="c-gallery__item">
             <img
               class="c-gallery__image"
-              src="/assets/img/top/gallery_img08.png"
+              src="/base10/assets/img/top/gallery_img08.png"
               alt=""
               width="274"
               height="197"
@@ -154,7 +155,7 @@ const response = await getBlogs({
           <li class="c-gallery__item">
             <img
               class="c-gallery__image"
-              src="/assets/img/top/gallery_img09.png"
+              src="/base10/assets/img/top/gallery_img09.png"
               alt=""
               width="274"
               height="197"
@@ -165,7 +166,7 @@ const response = await getBlogs({
           <li class="c-gallery__item">
             <img
               class="c-gallery__image"
-              src="/assets/img/top/gallery_img10.png"
+              src="/base10/assets/img/top/gallery_img10.png"
               alt=""
               width="274"
               height="197"
@@ -176,7 +177,7 @@ const response = await getBlogs({
           <li class="c-gallery__item">
             <img
               class="c-gallery__image"
-              src="/assets/img/top/gallery_img11.png"
+              src="/base10/assets/img/top/gallery_img11.png"
               alt=""
               width="274"
               height="197"
@@ -187,7 +188,7 @@ const response = await getBlogs({
           <li class="c-gallery__item">
             <img
               class="c-gallery__image"
-              src="/assets/img/top/gallery_img12.png"
+              src="/base10/assets/img/top/gallery_img12.png"
               alt=""
               width="274"
               height="197"
@@ -200,7 +201,7 @@ const response = await getBlogs({
           <li class="c-gallery__item">
             <img
               class="c-gallery__image"
-              src="/assets/img/top/gallery_img01.png"
+              src="/base10/assets/img/top/gallery_img01.png"
               alt=""
               width="274"
               height="197"
@@ -211,7 +212,7 @@ const response = await getBlogs({
           <li class="c-gallery__item">
             <img
               class="c-gallery__image"
-              src="/assets/img/top/gallery_img02.png"
+              src="/base10/assets/img/top/gallery_img02.png"
               alt=""
               width="274"
               height="197"
@@ -222,7 +223,7 @@ const response = await getBlogs({
           <li class="c-gallery__item">
             <img
               class="c-gallery__image"
-              src="/assets/img/top/gallery_img03.png"
+              src="/base10/assets/img/top/gallery_img03.png"
               alt=""
               width="274"
               height="197"
@@ -233,7 +234,7 @@ const response = await getBlogs({
           <li class="c-gallery__item">
             <img
               class="c-gallery__image"
-              src="/assets/img/top/gallery_img04.png"
+              src="/base10/assets/img/top/gallery_img04.png"
               alt=""
               width="274"
               height="197"
@@ -244,7 +245,7 @@ const response = await getBlogs({
           <li class="c-gallery__item">
             <img
               class="c-gallery__image"
-              src="/assets/img/top/gallery_img05.png"
+              src="/base10/assets/img/top/gallery_img05.png"
               alt=""
               width="274"
               height="197"
@@ -255,7 +256,7 @@ const response = await getBlogs({
           <li class="c-gallery__item">
             <img
               class="c-gallery__image"
-              src="/assets/img/top/gallery_img06.png"
+              src="/base10/assets/img/top/gallery_img06.png"
               alt=""
               width="274"
               height="197"
@@ -266,7 +267,7 @@ const response = await getBlogs({
           <li class="c-gallery__item">
             <img
               class="c-gallery__image"
-              src="/assets/img/top/gallery_img07.png"
+              src="/base10/assets/img/top/gallery_img07.png"
               alt=""
               width="274"
               height="197"
@@ -277,7 +278,7 @@ const response = await getBlogs({
           <li class="c-gallery__item">
             <img
               class="c-gallery__image"
-              src="/assets/img/top/gallery_img08.png"
+              src="/base10/assets/img/top/gallery_img08.png"
               alt=""
               width="274"
               height="197"
@@ -288,7 +289,7 @@ const response = await getBlogs({
           <li class="c-gallery__item">
             <img
               class="c-gallery__image"
-              src="/assets/img/top/gallery_img09.png"
+              src="/base10/assets/img/top/gallery_img09.png"
               alt=""
               width="274"
               height="197"
@@ -299,7 +300,7 @@ const response = await getBlogs({
           <li class="c-gallery__item">
             <img
               class="c-gallery__image"
-              src="/assets/img/top/gallery_img10.png"
+              src="/base10/assets/img/top/gallery_img10.png"
               alt=""
               width="274"
               height="197"
@@ -310,7 +311,7 @@ const response = await getBlogs({
           <li class="c-gallery__item">
             <img
               class="c-gallery__image"
-              src="/assets/img/top/gallery_img11.png"
+              src="/base10/assets/img/top/gallery_img11.png"
               alt=""
               width="274"
               height="197"
@@ -321,7 +322,7 @@ const response = await getBlogs({
           <li class="c-gallery__item">
             <img
               class="c-gallery__image"
-              src="/assets/img/top/gallery_img12.png"
+              src="/base10/assets/img/top/gallery_img12.png"
               alt=""
               width="274"
               height="197"
@@ -356,7 +357,7 @@ const response = await getBlogs({
         </div>
         <figure class="c-service__img">
           <img
-            src="/assets/img/top/service_map-img.png"
+            src="/base10/assets/img/top/service_map-img.png"
             alt="株式会社ENVY DESIGN1.2km圏内エリアマップ"
             width="546"
             height="546"
@@ -370,7 +371,7 @@ const response = await getBlogs({
           <li class="c-card">
             <div class="c-card__img">
               <img
-                src="/assets/img/top/service_icon01.png"
+                src="/base10/assets/img/top/service_icon01.png"
                 alt=""
                 width="263"
                 height="178"
@@ -387,7 +388,7 @@ const response = await getBlogs({
           <li class="c-card">
             <div class="c-card__img">
               <img
-                src="/assets/img/top/service_icon02.png"
+                src="/base10/assets/img/top/service_icon02.png"
                 alt=""
                 width="263"
                 height="178"
@@ -406,7 +407,7 @@ const response = await getBlogs({
           <li class="c-card">
             <div class="c-card__img">
               <img
-                src="/assets/img/top/service_icon03.png"
+                src="/base10/assets/img/top/service_icon03.png"
                 alt=""
                 width="263"
                 height="178"
@@ -423,7 +424,7 @@ const response = await getBlogs({
           <li class="c-card">
             <div class="c-card__img">
               <img
-                src="/assets/img/top/service_icon04.png"
+                src="/base10/assets/img/top/service_icon04.png"
                 alt=""
                 width="263"
                 height="178"
@@ -444,145 +445,199 @@ const response = await getBlogs({
           <a href="/service/" class="c-btn">サービス一覧を見る</a>
         </div>
       </section>
-      </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="p-top-works">
-      <div class="l-inner">
-        <div class="p-top-works__head">
-          <h2 class="c-primary-title">Works</h2>
-          <a href="" class="p-top-works__link">実例一覧</a>
-        </div>
-        <div class="p-top-works__slider">
-          <section
-            class="splide"
-            aria-label="株式会社ENVY DESIGNの実績スライダー"
-          >
-            <div class="splide__track">
-              <ul class="splide__list">
-                <li class="splide__slide c-works">
-                  <figure class="c-works__img">
-                    <img src="/assets/img/top/works_img01.png" alt="" width="470" height="337" loading="lazy">
-                  </figure>
-                  <div class="c-works__body">
-                    <ul class="c-works__tag-wrap">
-                      <li class="c-works__tag">ECサイト</li>
-                      <li class="c-works__tag">LP / バナー</li>
-                      <li class="c-works__tag">サイト運用・保守</li>
-                    </ul>
-                    <p class="c-works__name">BRILLIAGE</p>
-                  </div>
-                </li>
-                <li class="splide__slide c-works">
-                  <figure class="c-works__img">
-                    <img src="/assets/img/top/works_img02.png" alt="" width="470" height="337" loading="lazy">
-                  </figure>
-                  <div class="c-works__body">
-                    <ul class="c-works__tag-wrap">
-                      <li class="c-works__tag">LP / バナー</li>
-                      <li class="c-works__tag">サイト運用・保守</li>
-                    </ul>
-                    <p class="c-works__name">ENVY DESIGN</p>
-                  </div>
-                </li>
-                <li class="splide__slide c-works">
-                  <figure class="c-works__img">
-                    <img src="/assets/img/top/works_img03.png" alt="" width="470" height="337" loading="lazy">
-                  </figure>
-                  <div class="c-works__body">
-                    <ul class="c-works__tag-wrap">
-                      <li class="c-works__tag">LP / バナー</li>
-                      <li class="c-works__tag">サイト運用・保守</li>
-                    </ul>
-                    <p class="c-works__name">Shimizu Industry</p>
-                  </div>
-                </li>
-                <li class="splide__slide c-works">
-                  <figure class="c-works__img">
-                    <img src="/assets/img/top/works_img04.png" alt="" width="470" height="337" loading="lazy">
-                  </figure>
-                  <div class="c-works__body">
-                    <ul class="c-works__tag-wrap">
-                      <li class="c-works__tag">ECサイト</li>
-                      <li class="c-works__tag">LP / バナー</li>
-                      <li class="c-works__tag">サイト運用・保守</li>
-                    </ul>
-                    <p class="c-works__name">なかほり眼科クリニック</p>
-                  </div>
-                </li>
-                <li class="splide__slide c-works">
-                  <figure class="c-works__img">
-                    <img src="/assets/img/top/works_img05.png" alt="" width="470" height="337" loading="lazy">
-                  </figure>
-                  <div class="c-works__body">
-                    <ul class="c-works__tag-wrap">
-                      <li class="c-works__tag">ECサイト</li>
-                      <li class="c-works__tag">LP / バナー</li>
-                      <li class="c-works__tag">サイト運用・保守</li>
-                    </ul>
-                    <p class="c-works__name">朝明商事</p>
-                  </div>
-                </li>
-                <li class="splide__slide c-works">
-                  <figure class="c-works__img">
-                    <img src="/assets/img/top/works_img06.png" alt="" width="470" height="337" loading="lazy">
-                  </figure>
-                  <div class="c-works__body">
-                    <ul class="c-works__tag-wrap">
-                      <li class="c-works__tag">ECサイト</li>
-                      <li class="c-works__tag">LP / バナー</li>
-                      <li class="c-works__tag">サイト運用・保守6</li>
-                    </ul>
-                    <p class="c-works__name">the R nail company</p>
-                  </div>
-                </li>
-                <li class="splide__slide c-works">
-                  <figure class="c-works__img">
-                    <img src="/assets/img/top/works_img08.png" alt="" width="470" height="337" loading="lazy">
-                  </figure>
-                  <div class="c-works__body">
-                    <ul class="c-works__tag-wrap">
-                      <li class="c-works__tag">ECサイト</li>
-                      <li class="c-works__tag">LP / バナー</li>
-                      <li class="c-works__tag">サイト運用・保守7</li>
-                    </ul>
-                    <p class="c-works__name">文化財保存計画協会</p>
-                  </div>
-                </li>
-                <li class="splide__slide c-works">
-                  <figure class="c-works__img">
-                    <img src="/assets/img/top/works_img07.png" alt="" width="470" height="337" loading="lazy">
-                  </figure>
-                  <div class="c-works__body">
-                    <ul class="c-works__tag-wrap">
-                      <li class="c-works__tag">ECサイト</li>
-                      <li class="c-works__tag">LP / バナー</li>
-                      <li class="c-works__tag">サイト運用・保守7</li>
-                    </ul>
-                    <p class="c-works__name">中野区立広町みらい公園</p>
-                  </div>
-                </li>
-                <li class="splide__slide c-works">
-                  <figure class="c-works__img">
-                    <img src="/assets/img/top/works_img09.png" alt="" width="470" height="337" loading="lazy">
-                  </figure>
-                  <div class="c-works__body">
-                    <ul class="c-works__tag-wrap">
-                      <li class="c-works__tag">ECサイト</li>
-                      <li class="c-works__tag">LP / バナー</li>
-                      <li class="c-works__tag">サイト運用・保守7</li>
-                    </ul>
-                    <p class="c-works__name">さくらプロジェクト</p>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </section>
-        </div>
+  <section class="p-top-works">
+    <div class="l-inner">
+      <div class="p-top-works__head">
+        <h2 class="c-primary-title">Works</h2>
+        <a href="" class="p-top-works__link">実例一覧</a>
       </div>
-    </section>
+      <div class="p-top-works__slider">
+        <section
+          class="splide"
+          aria-label="株式会社ENVY DESIGNの実績スライダー"
+        >
+          <div class="splide__track">
+            <ul class="splide__list">
+              <li class="splide__slide c-works">
+                <figure class="c-works__img">
+                  <img
+                    src="/base10/assets/img/top/works_img01.png"
+                    alt=""
+                    width="470"
+                    height="337"
+                    loading="lazy"
+                  />
+                </figure>
+                <div class="c-works__body">
+                  <ul class="c-works__tag-wrap">
+                    <li class="c-works__tag">ECサイト</li>
+                    <li class="c-works__tag">LP / バナー</li>
+                    <li class="c-works__tag">サイト運用・保守</li>
+                  </ul>
+                  <p class="c-works__name">BRILLIAGE</p>
+                </div>
+              </li>
+              <li class="splide__slide c-works">
+                <figure class="c-works__img">
+                  <img
+                    src="/base10/assets/img/top/works_img02.png"
+                    alt=""
+                    width="470"
+                    height="337"
+                    loading="lazy"
+                  />
+                </figure>
+                <div class="c-works__body">
+                  <ul class="c-works__tag-wrap">
+                    <li class="c-works__tag">LP / バナー</li>
+                    <li class="c-works__tag">サイト運用・保守</li>
+                  </ul>
+                  <p class="c-works__name">ENVY DESIGN</p>
+                </div>
+              </li>
+              <li class="splide__slide c-works">
+                <figure class="c-works__img">
+                  <img
+                    src="/base10/assets/img/top/works_img03.png"
+                    alt=""
+                    width="470"
+                    height="337"
+                    loading="lazy"
+                  />
+                </figure>
+                <div class="c-works__body">
+                  <ul class="c-works__tag-wrap">
+                    <li class="c-works__tag">LP / バナー</li>
+                    <li class="c-works__tag">サイト運用・保守</li>
+                  </ul>
+                  <p class="c-works__name">Shimizu Industry</p>
+                </div>
+              </li>
+              <li class="splide__slide c-works">
+                <figure class="c-works__img">
+                  <img
+                    src="/base10/assets/img/top/works_img04.png"
+                    alt=""
+                    width="470"
+                    height="337"
+                    loading="lazy"
+                  />
+                </figure>
+                <div class="c-works__body">
+                  <ul class="c-works__tag-wrap">
+                    <li class="c-works__tag">ECサイト</li>
+                    <li class="c-works__tag">LP / バナー</li>
+                    <li class="c-works__tag">サイト運用・保守</li>
+                  </ul>
+                  <p class="c-works__name">なかほり眼科クリニック</p>
+                </div>
+              </li>
+              <li class="splide__slide c-works">
+                <figure class="c-works__img">
+                  <img
+                    src="/base10/assets/img/top/works_img05.png"
+                    alt=""
+                    width="470"
+                    height="337"
+                    loading="lazy"
+                  />
+                </figure>
+                <div class="c-works__body">
+                  <ul class="c-works__tag-wrap">
+                    <li class="c-works__tag">ECサイト</li>
+                    <li class="c-works__tag">LP / バナー</li>
+                    <li class="c-works__tag">サイト運用・保守</li>
+                  </ul>
+                  <p class="c-works__name">朝明商事</p>
+                </div>
+              </li>
+              <li class="splide__slide c-works">
+                <figure class="c-works__img">
+                  <img
+                    src="/base10/assets/img/top/works_img06.png"
+                    alt=""
+                    width="470"
+                    height="337"
+                    loading="lazy"
+                  />
+                </figure>
+                <div class="c-works__body">
+                  <ul class="c-works__tag-wrap">
+                    <li class="c-works__tag">ECサイト</li>
+                    <li class="c-works__tag">LP / バナー</li>
+                    <li class="c-works__tag">サイト運用・保守6</li>
+                  </ul>
+                  <p class="c-works__name">the R nail company</p>
+                </div>
+              </li>
+              <li class="splide__slide c-works">
+                <figure class="c-works__img">
+                  <img
+                    src="/base10/assets/img/top/works_img08.png"
+                    alt=""
+                    width="470"
+                    height="337"
+                    loading="lazy"
+                  />
+                </figure>
+                <div class="c-works__body">
+                  <ul class="c-works__tag-wrap">
+                    <li class="c-works__tag">ECサイト</li>
+                    <li class="c-works__tag">LP / バナー</li>
+                    <li class="c-works__tag">サイト運用・保守7</li>
+                  </ul>
+                  <p class="c-works__name">文化財保存計画協会</p>
+                </div>
+              </li>
+              <li class="splide__slide c-works">
+                <figure class="c-works__img">
+                  <img
+                    src="/base10/assets/img/top/works_img07.png"
+                    alt=""
+                    width="470"
+                    height="337"
+                    loading="lazy"
+                  />
+                </figure>
+                <div class="c-works__body">
+                  <ul class="c-works__tag-wrap">
+                    <li class="c-works__tag">ECサイト</li>
+                    <li class="c-works__tag">LP / バナー</li>
+                    <li class="c-works__tag">サイト運用・保守7</li>
+                  </ul>
+                  <p class="c-works__name">中野区立広町みらい公園</p>
+                </div>
+              </li>
+              <li class="splide__slide c-works">
+                <figure class="c-works__img">
+                  <img
+                    src="/base10/assets/img/top/works_img09.png"
+                    alt=""
+                    width="470"
+                    height="337"
+                    loading="lazy"
+                  />
+                </figure>
+                <div class="c-works__body">
+                  <ul class="c-works__tag-wrap">
+                    <li class="c-works__tag">ECサイト</li>
+                    <li class="c-works__tag">LP / バナー</li>
+                    <li class="c-works__tag">サイト運用・保守7</li>
+                  </ul>
+                  <p class="c-works__name">さくらプロジェクト</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- <section class="p-top-blog">
+  <!-- <section class="p-top-blog">
       <div class="l-inner">
         <h2 class="c-primary-title">Blog</h2>
         <ul class="l-grid l-grid--col2">
@@ -634,6 +689,4 @@ const response = await getBlogs({
         </div>
       </div>
     </section> -->
-
-  </section>
 </Layout>

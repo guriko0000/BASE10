@@ -1,6 +1,6 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import { getCategories, getBlogDetail, getBlogs } from '../../library/microcms';
+import Layout from "../../layouts/Layout.astro";
+import { getCategories, getBlogDetail, getBlogs } from "../../library/microcms";
 
 export async function getStaticPaths() {
   const limit = 100;
@@ -32,8 +32,8 @@ while (hasMore) {
   const res = await getBlogs({
     offset,
     limit,
-    fields: ['id', 'title', 'publishedAt'],
-    orders: '-publishedAt',
+    fields: ["id", "title", "publishedAt"],
+    orders: "-publishedAt",
   });
   allBlogs = allBlogs.concat(res.contents);
   offset += limit;
@@ -45,7 +45,6 @@ const nextBlog = allBlogs[currentIndex + 1];
 const prevBlog = allBlogs[currentIndex - 1];
 ---
 
-
 <Layout title={blog.title}>
   <section class="p-under-mv">
     <div class="l-inner">
@@ -56,67 +55,82 @@ const prevBlog = allBlogs[currentIndex - 1];
     </div>
   </section>
 
-
   <section class="p-post l-section l-section--first l-section--last">
-    <div class="l-inner">  
+    <div class="l-inner">
       <article class="l-section__main">
         <div class="p-post__head">
           <h1 class="p-post__title">{blog.title}</h1>
           <div class="p-post__meta">
             <p class="p-post__date">{blog.publishedAt.substring(0, 10)}</p>
-            {blog.category && blog.category.length > 0 && (
-              <div class="p-post__cate-wrap">
-                {blog.category.map((cat) => (
-                  <span class="p-post__cate">{cat["cate-name"]}</span>
-                ))}
-              </div>
-            )}            
+            {
+              blog.category && blog.category.length > 0 && (
+                <div class="p-post__cate-wrap">
+                  {blog.category.map((cat) => (
+                    <span class="p-post__cate">{cat["cate-name"]}</span>
+                  ))}
+                </div>
+              )
+            }
           </div>
         </div>
 
         <div class="p-post__main-img">
-          {blog.thumbnail?.url && (
-            <img src={blog.thumbnail.url} alt="{blog.title}" />
-          )}
+          {
+            blog.thumbnail?.url && (
+              <img src={blog.thumbnail.url} alt="{blog.title}" />
+            )
+          }
         </div>
         <div class="p-post__content" set:html={blog.content} />
-      
 
-      <div class="p-post__pager c-pager">
-          {prevBlog && (
-            <div class="c-pager__next">
-              <a href={`/blog/${prevBlog.id}`}>
-                <img src="/assets/img/icon/icon_arrow-left-gray.svg" alt="次の記事へ" width="12" height="13" />次の記事へ
-              </a>
-            </div>
-          )}
-          {nextBlog && (
-            <div class="c-pager__prev">
-              <a href={`/blog/${nextBlog.id}`}>
-              前の記事へ<img src="/assets/img/icon/icon_arrow-right-gray.svg" alt="前の記事へ" width="12" height="13" />
-              </a>
-            </div>
-          )}
-      </div>
-    </article>
+        <div class="p-post__pager c-pager">
+          {
+            prevBlog && (
+              <div class="c-pager__next">
+                <a href={`/blog/${prevBlog.id}`}>
+                  <img
+                    src="/base10/assets/img/icon/icon_arrow-left-gray.svg"
+                    alt="次の記事へ"
+                    width="12"
+                    height="13"
+                  />
+                  次の記事へ
+                </a>
+              </div>
+            )
+          }
+          {
+            nextBlog && (
+              <div class="c-pager__prev">
+                <a href={`/blog/${nextBlog.id}`}>
+                  前の記事へ
+                  <img
+                    src="/base10/assets/img/icon/icon_arrow-right-gray.svg"
+                    alt="前の記事へ"
+                    width="12"
+                    height="13"
+                  />
+                </a>
+              </div>
+            )
+          }
+        </div>
+      </article>
 
-    <aside class="l-section__sub p-sidebar">
-      <div class="p-sidebar__container">
-        <h2 class="p-sidebar__title">カテゴリ一覧</h2>
-        <ul class="p-sidebar__list">
-          {categoryList.contents.map((cat) => (
-            <li>
-              <a href={`/blog/category/${cat.id}`}>{cat["cate-name"]}</a>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </aside>  
-
+      <aside class="l-section__sub p-sidebar">
+        <div class="p-sidebar__container">
+          <h2 class="p-sidebar__title">カテゴリ一覧</h2>
+          <ul class="p-sidebar__list">
+            {
+              categoryList.contents.map((cat) => (
+                <li>
+                  <a href={`/blog/category/${cat.id}`}>{cat["cate-name"]}</a>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      </aside>
     </div>
   </section>
-  
-
-
-
 </Layout>
