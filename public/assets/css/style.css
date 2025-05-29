@@ -3991,28 +3991,28 @@ form#mailformpro dl dt, form#mailformpro dl dd {
 /* -------------------------------------
         p-policy
 -----------------------------------------*/
+.p-policy .p-policy__title {
+  font-size: 2.2rem;
+  font-weight: 500;
+}
+@media screen and (max-width: 767px) {
+  .p-policy .p-policy__title {
+    font-size: 1.9rem;
+  }
+}
+.p-policy .p-policy__title + * {
+  margin-top: 20px;
+}
+@media screen and (max-width: 767px) {
+  .p-policy .p-policy__title + * {
+    margin-top: 15px;
+  }
+}
 .p-policy__section {
   margin-top: 60px;
 }
 .p-policy__section:first-child {
   margin-top: 0;
-}
-.p-policy__section .p-policy__title {
-  font-size: 2.2rem;
-  font-weight: 500;
-}
-@media screen and (max-width: 767px) {
-  .p-policy__section .p-policy__title {
-    font-size: 1.9rem;
-  }
-}
-.p-policy__section .p-policy__title + * {
-  margin-top: 20px;
-}
-@media screen and (max-width: 767px) {
-  .p-policy__section .p-policy__title + * {
-    margin-top: 15px;
-  }
 }
 .p-policy__section p + p {
   margin-top: 10px;
