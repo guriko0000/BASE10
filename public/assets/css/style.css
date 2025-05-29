@@ -3997,7 +3997,7 @@ form#mailformpro dl dt, form#mailformpro dl dd {
 }
 @media screen and (max-width: 767px) {
   .p-policy .p-policy__title {
-    font-size: 1.9rem;
+    font-size: 1.8rem;
   }
 }
 .p-policy .p-policy__title + * {
