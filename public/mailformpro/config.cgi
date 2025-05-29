@@ -9,7 +9,7 @@ $config{'ConfirmationMode'} = 0;
 $config{'sendmail'} = '/usr/sbin/sendmail';
 
 ## フォームの宛先
-push @mailto,'development@envydesign.jp';
+push @mailto,'support@envydesign.jp';
 
 ## 管理者宛メールのCC・BCCの宛先
 #$config{'admin_cc'} = 'support@synck.com';
@@ -46,12 +46,12 @@ $config{'SerialBoost'} = 0;
 $config{'ThanksPage'} = '../thanks/';
 
 ## 設置者に届くメールの件名
-$config{'subject'} = 'お問い合せフォームから';
+$config{'subject'} = 'BASE10お問い合せフォームから問い合わせがありました';
 
 ## 設置者に届くメールの本文整形
 $_TEXT{'posted'} = <<'__posted_body__';
 <_mfp_date_>
-お問い合せフォームより以下のメールを受付ました。
+BASE10お問い合せフォームより以下のメールを受付ました。
 ──────────────────────────
 
 <_resbody_>
