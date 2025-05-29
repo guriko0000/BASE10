@@ -11,7 +11,7 @@
       margin-top: 0;
     }
 
-    &__title {
+    .p-policy__title {
       font-size: 2.2rem;
       font-weight: $medium;
       @include mq(md) {
