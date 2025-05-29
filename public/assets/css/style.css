@@ -3989,6 +3989,108 @@ form#mailformpro dl dt, form#mailformpro dl dd {
 }
 
 /* -------------------------------------
+        p-policy
+-----------------------------------------*/
+.p-policy__section {
+  margin-top: 60px;
+}
+.p-policy__section:first-child {
+  margin-top: 0;
+}
+.p-policy__section h3 {
+  font-size: 2.2rem;
+  font-weight: 500;
+}
+@media screen and (max-width: 767px) {
+  .p-policy__section h3 {
+    font-size: 1.9rem;
+  }
+}
+.p-policy__section h3 + * {
+  margin-top: 20px;
+}
+@media screen and (max-width: 767px) {
+  .p-policy__section h3 + * {
+    margin-top: 15px;
+  }
+}
+.p-policy__section p + p {
+  margin-top: 10px;
+}
+.p-policy__section ul {
+  margin-top: 20px;
+}
+@media screen and (max-width: 767px) {
+  .p-policy__section ul {
+    margin-top: 15px;
+  }
+}
+.p-policy__section ul li {
+  text-indent: -0.6em;
+  padding-left: 0.8em;
+  margin-top: 10px;
+}
+.p-policy__section ul li::before {
+  content: "";
+  display: inline-block;
+  width: 4px;
+  height: 4px;
+  background-color: #333;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 6px;
+  -webkit-transform: translateY(-3px);
+          transform: translateY(-3px);
+}
+.p-policy__section ul li:first-child {
+  margin-top: 0;
+}
+.p-policy__section ul li a[target=_blank]::after {
+  padding-left: 16px;
+}
+.p-policy__section ol {
+  margin-top: 20px;
+}
+@media screen and (max-width: 767px) {
+  .p-policy__section ol {
+    margin-top: 15px;
+  }
+}
+.p-policy__section ol li {
+  counter-increment: num;
+  text-indent: -1.3em;
+  padding-left: 1.2em;
+  margin-top: 10px;
+}
+.p-policy__section ol li::before {
+  display: inline-block;
+  width: 1.2em;
+  color: #333;
+  text-indent: 0;
+  content: counter(num) ".";
+}
+@media screen and (max-width: 767px) {
+  .p-policy__section ol li {
+    text-indent: -1.3em;
+  }
+}
+.p-policy__section ol li:first-child {
+  margin-top: 0;
+}
+.p-policy__section ol li a[target=_blank]::after {
+  padding-left: 26px;
+}
+.p-policy__section a {
+  word-wrap: break-word;
+  text-decoration: underline;
+  -webkit-transition: color 0.25s;
+  transition: color 0.25s;
+}
+.p-policy__section a:hover, .p-policy__section a:focus {
+  color: #92846F;
+}
+
+/* -------------------------------------
         utility
 -----------------------------------------*/
 @media screen and (max-width: 767px) {
