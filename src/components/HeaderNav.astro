@@ -1,7 +1,7 @@
 ---
 const nav = [
   {
-    href: "/base10/",
+    href: "/",
     label: "Home",
   },
   {
@@ -79,7 +79,7 @@ const nav = [
         {
           nav.map((nav_item) => (
             <li class="p-sub-nav__item">
-              <a href={nav_item.href} class="p-sub-nav__link">
+              <a href={`/base10${nav_item.href}`} class="p-sub-nav__link">
                 {nav_item.label}
               </a>
             </li>
