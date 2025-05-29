@@ -3,7 +3,7 @@ import Layout from '../../layouts/Layout.astro';
 import { getBlogs, getCategories } from '../../library/microcms';
 
 const currentPage = 1;
-const limit = 20;//表示件数
+const limit = 20;
 const offset = 0;
 
 const response = await getBlogs({ limit, offset });
@@ -18,10 +18,8 @@ const centerPages = Array.from({ length: totalPages }, (_, i) => i + 1)
     page <= currentPage + range
   );
 
-// サイドバー用
 const categoryList = await getCategories();
 ---
-
 
 <Layout title="BLOG">
   <section class="p-under-mv">
@@ -39,7 +37,7 @@ const categoryList = await getCategories();
       <ul class="l-grid l-grid--col2">
         {response.contents.map((content) => (
           <li class="c-card l-grid__item">
-            <a href={`/blog/${content.id}`}>
+            <a href={`/base10/blog/${content.id}`}>
               <div class="c-card__thumb">
                 {content.thumbnail?.url && (
                   <img 
@@ -51,8 +49,6 @@ const categoryList = await getCategories();
                 )}
               </div>
               <div class="c-card__body">
-                
-      
                 {(content.category?.length > 0 || content.publishedAt) && (
                   <div class="c-card__meta">
                     {content.publishedAt && (
@@ -78,7 +74,6 @@ const categoryList = await getCategories();
                     )}
                   </div>
                 )}
-
                 <p class="c-card__title">{content.title}</p>
               </div>
             </a>
@@ -86,59 +81,51 @@ const categoryList = await getCategories();
         ))}
       </ul>
       
-      <!-- ページネーション -->
       {totalPages > 1 && (
       <div class="p-post__pagination">
         <nav class="c-pagination">
           <ul>
-            {/* 前のページリンク */}
             {currentPage > 1 && (
               <li class="prev">
-                <a href={currentPage === 2 ? '/blog' : `/blog/${currentPage - 1}`} class="prev" aria-label="前のページ"></a>
+                <a href={currentPage === 2 ? '/base10/blog' : `/base10/blog/${currentPage - 1}`} class="prev" aria-label="前のページ"></a>
               </li>
             )}
 
-            {/* 最初のページ */}
             <li>
               {currentPage === 1 ? (
                 <span class="page-numbers is-current">1</span>
               ) : (
-                <a href="/blog">1</a>  // ← "/blog/page/1" じゃなくて "/blog"
+                <a href="/base10/blog">1</a>
               )}
             </li>
 
-            {/* …省略 */}
             {currentPage > 1 + range + 1 && <li class=""><span>…</span></li>}
 
-            {/* 中央ページ */}
             {centerPages.map(page => (
               <li>
                 {page === currentPage ? (
                   <span class="current">{page}</span>
                 ) : (
-                  <a href={`/blog/${page}`} class="page-numbers">{page}</a>  // ←ここも修正
+                  <a href={`/base10/blog/${page}`} class="page-numbers">{page}</a>
                 )}
               </li>
             ))}
 
-            {/* …省略 */}
             {currentPage < totalPages - range - 1 && <li><span>…</span></li>}
 
-            {/* 最後のページ */}
             {totalPages > 1 && (
               <li>
                 {currentPage === totalPages ? (
                   <span class="current">{totalPages}</span>
                 ) : (
-                  <a href={`/blog/${totalPages}`} class="page-numbers">{totalPages}</a>
+                  <a href={`/base10/blog/${totalPages}`} class="page-numbers">{totalPages}</a>
                 )}
               </li>
             )}
 
-            {/* 次のページリンク */}
             {currentPage < totalPages && (
               <li class="next">
-                <a href={`/blog/${currentPage + 1}`} class="next" aria-label="次のページ"></a>
+                <a href={`/base10/blog/${currentPage + 1}`} class="next" aria-label="次のページ"></a>
               </li>
             )}
           </ul>
@@ -153,7 +140,7 @@ const categoryList = await getCategories();
         <ul class="p-sidebar__list">
           {categoryList.contents.map((cat) => (
             <li>
-              <a href={`/blog/category/${cat.id}`}>{cat["cate-name"]}</a>
+              <a href={`/base10/blog/category/${cat.id}`}>{cat["cate-name"]}</a>
             </li>
           ))}
         </ul>

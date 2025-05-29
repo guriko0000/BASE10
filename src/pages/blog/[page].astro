@@ -2,17 +2,16 @@
 import Layout from '../../layouts/Layout.astro';
 import { getBlogs, getCategories } from '../../library/microcms';
 
-const POSTS_PER_PAGE = 20;//表示件数
+const POSTS_PER_PAGE = 20;
 
 export async function getStaticPaths() {
-  const POSTS_PER_PAGE = 20;//表示件数
+  const POSTS_PER_PAGE = 20;
 
-  const response = await getBlogs({ limit: 1 }); // 軽量取得
+  const response = await getBlogs({ limit: 1 });
   const totalPages = Math.ceil(response.totalCount / POSTS_PER_PAGE);
 
-  // /blog は index.astro が担当するので、2ページ目以降のみ生成
   return Array.from({ length: totalPages - 1 }, (_, i) => ({
-    params: { page: String(i + 2) }, // page: '2'〜
+    params: { page: String(i + 2) },
   }));
 }
 
@@ -32,10 +31,8 @@ const centerPages = Array.from({ length: totalPages }, (_, i) => i + 1)
     page <= currentPage + range
   );
 
-// サイドバー用
 const categoryList = await getCategories();
 ---
-
 
 <Layout title="BLOG">
   <section class="p-under-mv">
@@ -46,135 +43,130 @@ const categoryList = await getCategories();
       </h1>
     </div>
   </section>
-<section class="p-post l-section l-section--first l-section--last">
-  <div class="l-inner">
 
-    <div class="l-section__main">
-      <ul class="l-grid l-grid--col2">
-        {response.contents.map((content) => (
-          <li class="c-card l-grid__item">
-            <a href={`/blog/${content.id}`}>
-              <div class="c-card__thumb">
-                {content.thumbnail?.url && (
-                  <img 
-                    src={content.thumbnail.url} 
-                    alt={content.title} 
-                    width={150} 
-                    height={100} 
-                  />
-                )}
-              </div>
-              <div class="c-card__body">
-                
-      
-                {(content.category?.length > 0 || content.publishedAt) && (
-                  <div class="c-card__meta">
-                    {content.publishedAt && (
-                      <time
-                        class="c-card__date"
-                        datetime={new Date(content.publishedAt).toISOString().split('T')[0]}
-                      >
-                        {(() => {
-                          const d = new Date(content.publishedAt);
-                          const yyyy = d.getFullYear();
-                          const mm = String(d.getMonth() + 1).padStart(2, '0');
-                          const dd = String(d.getDate()).padStart(2, '0');
-                          return `${yyyy}.${mm}.${dd}`;
-                        })()}
-                      </time>
-                    )}
-                    {content.category?.length > 0 && (
-                      <ul class="c-card__cate-wrap">
-                        {content.category.map((cat) => (
-                          <li class="c-card__cate">{cat["cate-name"]}</li>
-                        ))}
-                      </ul>
-                    )}
-                  </div>
-                )}
-
-                <p class="c-card__title">{content.title}</p>
-              </div>
-            </a>
-          </li>
-        ))}
-      </ul>
-      
-      <!-- ページネーション -->
-      {totalPages > 1 && (
-      <div class="p-post__pagination">
-        <nav class="c-pagination">
-          <ul>
-            {/* 前のページリンク */}
-            {currentPage > 1 && (
-              <li class="prev">
-                <a href={currentPage === 2 ? '/blog' : `/blog/${currentPage - 1}`} class="prev" aria-label="前のページ"></a>
-              </li>
-            )}
-
-            {/* 最初のページ */}
-            <li>
-              {currentPage === 1 ? (
-                <span class="page-numbers">1</span>
-              ) : (
-                <a href="/blog" class="page-numbers">1</a>  // ← "/blog/page/1" じゃなくて "/blog"
-              )}
-            </li>
-
-            {/* …省略 */}
-            {currentPage > 1 + range + 1 && <li class=""><span>…</span></li>}
-
-            {/* 中央ページ */}
-            {centerPages.map(page => (
-              <li>
-                {Number(page) === Number(currentPage) ? (
-                  <span class="page-numbers is-current">{page}</span>
-                ) : (
-                  <a href={`/blog/${page}`} class="page-numbers">{page}</a>
-                )}
-              </li>
-            ))}
-            
-
-            {/* …省略 */}
-            {currentPage < totalPages - range - 1 && <li><span>…</span></li>}
-
-            {/* 最後のページ */}
-            {totalPages > 1 && (
-              <li>
-                {currentPage === totalPages ? (
-                  <span class="page-numbers is-current">{totalPages}</span>
-                ) : (
-                  <a href={`/blog/${totalPages}`} class="page-numbers">{totalPages}</a>
-                )}
-              </li>
-            )}
-
-            {/* 次のページリンク */}
-            {currentPage < totalPages && (
-              <li class="next">
-                <a href={`/blog/${currentPage + 1}`} class="next" aria-label="次のページ"></a>
-              </li>
-            )}
-          </ul>
-        </nav>
-      </div>
-      )}
-    </div>
-
-    <aside class="l-section__sub p-sidebar">
-      <div class="p-sidebar__container">
-        <h2 class="p-sidebar__title">カテゴリ一覧</h2>
-        <ul class="p-sidebar__list">
-          {categoryList.contents.map((cat) => (
-            <li>
-              <a href={`/blog/category/${cat.id}`}>{cat["cate-name"]}</a>
+  <section class="p-post l-section l-section--first l-section--last">
+    <div class="l-inner">
+      <div class="l-section__main">
+        <ul class="l-grid l-grid--col2">
+          {response.contents.map((content) => (
+            <li class="c-card l-grid__item">
+              <a href={`/base10/blog/${content.id}`}>
+                <div class="c-card__thumb">
+                  {content.thumbnail?.url && (
+                    <img 
+                      src={content.thumbnail.url} 
+                      alt={content.title} 
+                      width={150} 
+                      height={100} 
+                    />
+                  )}
+                </div>
+                <div class="c-card__body">
+                  {(content.category?.length > 0 || content.publishedAt) && (
+                    <div class="c-card__meta">
+                      {content.publishedAt && (
+                        <time
+                          class="c-card__date"
+                          datetime={new Date(content.publishedAt).toISOString().split('T')[0]}
+                        >
+                          {(() => {
+                            const d = new Date(content.publishedAt);
+                            const yyyy = d.getFullYear();
+                            const mm = String(d.getMonth() + 1).padStart(2, '0');
+                            const dd = String(d.getDate()).padStart(2, '0');
+                            return `${yyyy}.${mm}.${dd}`;
+                          })()}
+                        </time>
+                      )}
+                      {content.category?.length > 0 && (
+                        <ul class="c-card__cate-wrap">
+                          {content.category.map((cat) => (
+                            <li class="c-card__cate">{cat["cate-name"]}</li>
+                          ))}
+                        </ul>
+                      )}
+                    </div>
+                  )}
+                  <p class="c-card__title">{content.title}</p>
+                </div>
+              </a>
             </li>
           ))}
         </ul>
-      </div>
-    </aside>  
 
-  </div>
-</section>
+        {totalPages > 1 && (
+          <div class="p-post__pagination">
+            <nav class="c-pagination">
+              <ul>
+                {currentPage > 1 && (
+                  <li class="prev">
+                    <a
+                      href={currentPage === 2 ? '/base10/blog' : `/base10/blog/${currentPage - 1}`}
+                      class="prev"
+                      aria-label="前のページ"
+                    ></a>
+                  </li>
+                )}
+
+                <li>
+                  {currentPage === 1 ? (
+                    <span class="page-numbers">1</span>
+                  ) : (
+                    <a href="/base10/blog" class="page-numbers">1</a>
+                  )}
+                </li>
+
+                {currentPage > 1 + range + 1 && <li><span>…</span></li>}
+
+                {centerPages.map(page => (
+                  <li>
+                    {Number(page) === Number(currentPage) ? (
+                      <span class="page-numbers is-current">{page}</span>
+                    ) : (
+                      <a href={`/base10/blog/${page}`} class="page-numbers">{page}</a>
+                    )}
+                  </li>
+                ))}
+
+                {currentPage < totalPages - range - 1 && <li><span>…</span></li>}
+
+                {totalPages > 1 && (
+                  <li>
+                    {currentPage === totalPages ? (
+                      <span class="page-numbers is-current">{totalPages}</span>
+                    ) : (
+                      <a href={`/base10/blog/${totalPages}`} class="page-numbers">{totalPages}</a>
+                    )}
+                  </li>
+                )}
+
+                {currentPage < totalPages && (
+                  <li class="next">
+                    <a
+                      href={`/base10/blog/${currentPage + 1}`}
+                      class="next"
+                      aria-label="次のページ"
+                    ></a>
+                  </li>
+                )}
+              </ul>
+            </nav>
+          </div>
+        )}
+      </div>
+
+      <aside class="l-section__sub p-sidebar">
+        <div class="p-sidebar__container">
+          <h2 class="p-sidebar__title">カテゴリ一覧</h2>
+          <ul class="p-sidebar__list">
+            {categoryList.contents.map((cat) => (
+              <li>
+                <a href={`/base10/blog/category/${cat.id}`}>{cat["cate-name"]}</a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </section>
 </Layout>

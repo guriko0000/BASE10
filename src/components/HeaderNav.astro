@@ -27,7 +27,7 @@ const nav = [
   <div class="l-header__inner">
     <!-- ロゴ -->
     <div class="l-header__logo">
-      <a href="/">
+      <a href="/base10/">
         <span class="l-header__logo-main">
           <img
             class="l-header__logo-img"
@@ -46,7 +46,7 @@ const nav = [
           {
             nav.map((nav_item) => (
               <li class="p-header-nav__item">
-                <a href={nav_item.href} class="p-header-nav__link">
+                <a href={`/base10${nav_item.href}`} class="p-header-nav__link">
                   {nav_item.label}
                 </a>
               </li>
@@ -55,7 +55,7 @@ const nav = [
         </ul>
       </nav>
       <div class="l-header__btn-wrap">
-        <a href="/contact/" class="l-header__btn">Contact</a>
+        <a href="/base10/contact/" class="l-header__btn">Contact</a>
       </div>
     </div>
     <!-- ハンバーガーメニュー -->
@@ -87,7 +87,7 @@ const nav = [
         }
       </ul>
       <div class="p-sub-nav__btn-wrap">
-        <a href="/contact/" class="p-sub-nav__btn">Contact</a>
+        <a href="/base/contact/" class="p-sub-nav__btn">Contact</a>
       </div>
     </div>
   </nav>

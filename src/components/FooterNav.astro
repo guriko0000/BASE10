@@ -27,7 +27,7 @@ const nav = [
 <nav class="l-footer__nav">
   <ul class="l-footer__nav-list">
     {nav.map((nav_item) =>
-      <li class="l-footer__nav-item"><a href={nav_item.href}>{nav_item.label}</a></li>
+      <li class="l-footer__nav-item"><a href={`/base10${nav_item.href}`}>{nav_item.label}</a></li>
     )}
   </ul>
 </nav>
